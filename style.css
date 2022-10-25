@@ -4,16 +4,18 @@
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
-body{background: #0238FF;
-    background: -webkit-linear-gradient(top left, #0238FF, #FF3701);
-    background: -moz-linear-gradient(top left, #0238FF, #FF3701);
-    background: linear-gradient(to bottom right, #0238FF, #FF3701);
+body{/* Created with https://www.css-gradient.com */
+    background: #4901FF;
+    background: -webkit-radial-gradient(top left, #4901FF, #66FF01);
+    background: -moz-radial-gradient(top left, #4901FF, #66FF01);
+    background: radial-gradient(to bottom right, #4901FF, #66FF01);
 }
 img {
     border-radius: 50%;
     display: block;
-    width: 100%;
-    height: auto;
+    width: 100px;
+    height: 100px;
+        }
         
 }
 .hero{
@@ -42,19 +44,16 @@ nav ul li a{
     color: rgb(0, 0, 0);
     background-color: antiquewhite;
     padding: 10px;
+    transition: .4s;
     text-decoration: none;
     font-weight: bold;
     text-transform: capitalize;
 }
 
 .content{
-    white-space: nowrap;
-        color: white;
-        font-size: 20px;
-        position: absolute;
-        overflow: hidden;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+    position: absolute;
+    bottom: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    text-align: center;
 }
