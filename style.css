@@ -4,12 +4,7 @@
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
-body{
-        background: #00E2FD;
-        background: -webkit-radial-gradient(top left, #00E2FD, #FD0151);
-        background: -moz-radial-gradient(top left, #00E2FD, #FD0151);
-        background: radial-gradient(to bottom right, #00E2FD, #FD0151);
-    }
+
 img {
         border-radius: 25%;
         display: block;
