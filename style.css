@@ -5,10 +5,10 @@
 }
 body{
 /* Created with https://www.css-gradient.com */
-        background: #010101;
-        background: -webkit-linear-gradient(top left, #010101, #0131B1);
-        background: -moz-linear-gradient(top left, #010101, #0131B1);
-        background: linear-gradient(to bottom right, #010101, #0131B1);
+        background: #4868E8;
+        background: -webkit-linear-gradient(top left, #4868E8, #CA266B);
+        background: -moz-linear-gradient(top left, #4868E8, #CA266B);
+        background: linear-gradient(to bottom right, #4868E8, #CA266B);
 }
 .container{
         display: flex;
