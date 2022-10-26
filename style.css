@@ -17,12 +17,11 @@ body{
         min-height: 90vh;
 }
 .box{
-        /* Created with https://www.css-gradient.com */
-                background: #010101;
-                background: -webkit-linear-gradient(top left, #010101, #800101);
-                background: -moz-linear-gradient(top left, #010101, #800101);
-                background: linear-gradient(to bottom right, #010101, #800101);
-                border-radius: 30px;
+/* Created with https://www.css-gradient.com */
+        background: #836F01;
+        background: -webkit-linear-gradient(top left, #836F01, #D83D3D);
+        background: -moz-linear-gradient(top left, #836F01, #D83D3D);
+        background: linear-gradient(to bottom right, #836F01, #D83D3D);
 
 }
 .innerbox{
