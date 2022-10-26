@@ -48,7 +48,7 @@ button{
 }
 
 .content{
-        color: #003a75e9;
+        color: #669fd7e9;
         position: absolute;
         top: 50%;
         left: 8%;
@@ -65,7 +65,7 @@ h1{
 .sidebar{
         width: 50px;
         height: 100vh;
-        background: linear-gradient(#524469bb, #746645e1);
+        background: linear-gradient(#8b4fec9e, #698cc5b7);
         position: absolute;
         right: 0;
         top: 0;
