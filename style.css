@@ -27,10 +27,10 @@
         justify-content: space-between;
 }
 button{
-        counter-reset: #fbfcfd;
+        counter-reset: #007bf7bc;
         padding: 10px 25px;
         background: transparent;
-        border: 1px solid#fff;
+        border: 1px solidrgba(129, 0, 0, 0.348);
         border-radius: 20px;
         outline: none;
         cursor: pointer;
