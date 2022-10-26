@@ -37,9 +37,9 @@ button{
           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .button:hover {
-        background-color: #0095ff;
+        background-color: #000c15;
         color: white;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 .content{
         color: #003a75e9;
@@ -53,4 +53,12 @@ h1{
         font-size: 80px;
         margin: 10px 0 30px;
         line-height: 80px;
+}
+.sidebar{
+        width: 50px;
+        height: 100vh;
+        background: linear-gradient(#281A40 ,#8C1029);
+        position: absolute;
+        right: 0;
+        top: 0;
 }
