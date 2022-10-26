@@ -30,7 +30,7 @@ button{
         color: #000408; 
         padding: 10px 25px;
         background: transparent;
-        border: 1px black;
+        border: 1px solid #fff;
         border-radius: 20px;
         outline: none;
         cursor: pointer;
