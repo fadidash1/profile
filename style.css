@@ -27,8 +27,7 @@
         justify-content: space-between;
 }
 button{
-        color: #0068d0;
-        counter-reset: #007bf7bc;
+        color: #000408; 
         padding: 10px 25px;
         background: transparent;
         border: 1px solidrgba(129, 0, 0, 0.348);
