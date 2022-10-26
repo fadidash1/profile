@@ -121,12 +121,10 @@ h1 {
         }
 
         50% {
-                transform: 1;
                 opacity: 0;
         }
 
         70% {
-                transform: 1;
                 opacity: 0;
         }
 
