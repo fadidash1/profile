@@ -27,6 +27,7 @@
         justify-content: space-between;
 }
 button{
+        color: #fbfcfd;
         counter-reset: #007bf7bc;
         padding: 10px 25px;
         background: transparent;
@@ -34,4 +35,8 @@ button{
         border-radius: 20px;
         outline: none;
         cursor: pointer;
+}
+.content{
+        color: #fbfcfd;
+
 }
