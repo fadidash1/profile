@@ -18,10 +18,10 @@ body{
 }
 .box{
 /* Created with https://www.css-gradient.com */
-        background: #836F01;
-        background: -webkit-linear-gradient(top left, #836F01, #D83D3D);
-        background: -moz-linear-gradient(top left, #836F01, #D83D3D);
-        background: linear-gradient(to bottom right, #836F01, #D83D3D);
+        background: #4FFEAF;
+        background: -webkit-linear-gradient(top left, #4FFEAF, #9B4FD5);
+        background: -moz-linear-gradient(top left, #4FFEAF, #9B4FD5);
+        background: linear-gradient(to bottom right, #4FFEAF, #9B4FD5);
 
 }
 .innerbox{
