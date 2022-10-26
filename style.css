@@ -13,8 +13,8 @@
         overflow: hidden;
 }
 .logo{
-        width: 20px;
-        height: 20px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         cursor: pointer;
 }
@@ -37,6 +37,10 @@ button{
         cursor: pointer;
 }
 .content{
-        color: #fbfcfd;
-
+        color: #003a75e9;
+        position: absolute;
+        top: 505;
+        left: 8%;
+        transform: translateY(-50%);
+        z-index: 2;
 }
