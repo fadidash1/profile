@@ -7,7 +7,7 @@
 .hero{
         width: 100%;
         height: 100vh;
-        background-image: url(images/office\ coffee.jpg);
+        background-image: url(images/blu\ purple.jpg);
         background-size: cover;
         background-position: center;
         position: relative;
@@ -110,7 +110,7 @@ h1{
         align-items: center;
         justify-content: space-around;
         position: absolute;
-        bottom: 70px;
+        bottom: -70px ;
 }
 
 @keyframes bubble{
@@ -130,13 +130,16 @@ h1{
         }
 }
 .bubbles img:nth-child(1){
+        width: 25px;
         animation-delay: 2s;
 }
 .bubbles img:nth-child(2){
         animation-delay: 1s;
 }
 .bubbles img:nth-child(3){
+        width: 25px;
         animation-delay: 3s;
+
 }
 .bubbles img:nth-child(4){
         animation-delay: 4.5s;
@@ -145,8 +148,10 @@ h1{
         animation-delay: 3s;
 }
 .bubbles img:nth-child(6){
+        width: 20px;
         animation-delay: 6s;
 }
 .bubbles img:nth-child(7){
+        width: 35px;
         animation-delay: 7s;
 }
