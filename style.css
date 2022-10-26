@@ -114,7 +114,7 @@ h1 {
         bottom: 70px;
 }
 
-@keyframes bubble {
+@keyframes bubble{
         0% {
                 transform: translateY(0);
                 opacity: 0;
