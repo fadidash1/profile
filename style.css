@@ -149,7 +149,7 @@ h1{
         cursor: pointer;
 }
 
-.social-links img,.useful-links img {
+.social-links img{
         width: 25px;
         margin: 5px auto;
         cursor: pointer;
@@ -163,10 +163,4 @@ h1{
         transform: translateY(-50%);
 }
 
-.useful-links{
-        width: 50px;
-        text-align: center;
-        position: absolute;
-        bottom: 30px;
-}
 
