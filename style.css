@@ -73,12 +73,12 @@ body::after {
         top: -80px;
         right: 30px;
         font-size: 4em;
-        color:rgb(28, 30, 65);
+        color:rgb(0, 0, 0);
         pointer-events: none;
 }
 .container .card .conten p{
         font-size: 1em;
-        color: rgb(28, 30, 65);
+        color: rgb(1, 1, 3);
         font-weight: 300;
 }
 .container .card .conten a{
