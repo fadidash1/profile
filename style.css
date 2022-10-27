@@ -68,11 +68,11 @@ body::after {
         transform: translateY(0px);
         opacity: 1;
 }
-.container .card .conten h1{
+.container .card .conten h4{
         position: absolute;
         top: -80px;
         right: 30px;
-        font-size: 8em;
+        font-size: 4em;
         color: rgba(255, 255, 255, 0.05);
         pointer-events: none;
 }
