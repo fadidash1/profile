@@ -68,17 +68,17 @@ body::after {
         transform: translateY(0px);
         opacity: 1;
 }
-.container .card .conten h4{
+.container .card .conten h2{
         position: absolute;
         top: -80px;
         right: 30px;
         font-size: 4em;
-        color: rgba(255, 255, 255, 0.05);
+        color: rgba(58, 14, 14, 0.05);
         pointer-events: none;
 }
 .container .card .conten p{
         font-size: 1em;
-        color: #fff;
+        color: #000;
         font-weight: 300;
 }
 .container .card .conten a{
