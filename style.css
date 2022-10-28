@@ -95,7 +95,6 @@ body::after {
 }
 .hero{
         width: 100%;
-        height: 100vh;
         background-image: url(images/blu\ purple.jpg);
         background-size: cover;
         background-position: center;
