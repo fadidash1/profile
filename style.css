@@ -107,7 +107,7 @@ body::after {
         height: 100px;
         border-radius: 25%;
         cursor: pointer;
-        object-fit: ;
+        object-fit: cover;
 }
 
 .navbar{
@@ -145,7 +145,7 @@ h1{
 }
 
 .social-links img{
-        width: 25px;
+        width: 40px;
         margin: 5px auto;
         cursor: pointer;
 }
@@ -158,4 +158,6 @@ h1{
         transform: translateY(-50%);
 }
 
+button{
 
+}
