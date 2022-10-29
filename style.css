@@ -136,17 +136,12 @@ h1{
 .sidebar{
         width: 50px;
         height: 100vh;
-        background: linear-gradient(#8b4fec4a, #698cc55f);
+        padding-top: 60px;
         position:fixed;
         right: 0;
         top: 0;
-}
-
-.menu{
-        display: block;
-        width: 25px;
-        margin: 40px auto 0;
-        cursor: pointer;
+        z-index: 1;
+        transition: 0.5s;
 }
 
 .social-links img{
