@@ -40,6 +40,7 @@ body::after {
         max-width: 1200px;
         flex-wrap: wrap;
         z-index: 1;
+        flex-direction: row;
 }
 .container .card{
         position: relative;
