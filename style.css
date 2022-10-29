@@ -107,7 +107,7 @@ body::after {
         height: 100px;
         border-radius: 25%;
         cursor: pointer;
-        object-fit: fill;
+        object-fit: ;
 }
 
 .navbar{
@@ -136,8 +136,8 @@ h1{
 .sidebar{
         width: 50px;
         height: 100vh;
-        background: linear-gradient(#8b4fec9e, #698cc5b7);
-        position: absolute;
+        background: linear-gradient(#8b4fec4a, #698cc55f);
+        position:fixed;
         right: 0;
         top: 0;
 }
