@@ -1,27 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Fruktur&display=swap");
-*{
+
+* {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: 'Fruktur', cursive;
 }
-body{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #161623;
+
+body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #161623;
 }
-body::before{
+
+body::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: linear-gradient(#f00,#f0f);
+        background-color: linear-gradient(#f00, #f0f);
         clip-path: circle(30% at right 70%);
 }
+
 body::after {
         content: '';
         position: absolute;
@@ -32,7 +36,8 @@ body::after {
         background-color: linear-gradient(#2196f3, #e91e63);
         clip-path: circle(20% at 10% 10%);
 }
-.container{
+
+.container {
         position: relative;
         display: flex;
         justify-content: center;
@@ -42,7 +47,8 @@ body::after {
         z-index: 1;
         flex-direction: row;
 }
-.container .card{
+
+.container .card {
         position: relative;
         width: 280px;
         height: 400px;
@@ -56,45 +62,63 @@ body::after {
         align-items: center;
         border-top: 1px solid rgba(255, 255, 255, 0.708);
         border-left: 1px solid rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(5px);      
+        backdrop-filter: blur(5px);
 }
-.container .card .conten{
+
+.container .card .content {
         padding: 20px;
         text-align: center;
         transform: translateY(100px);
         opacity: 0;
         transition: 0.5s;
 }
-.container .card:hover .conten{
+
+.container .card:hover .content {
         transform: translateY(0px);
         opacity: 1;
 }
-.container .card .conten h2{
+
+.container .card .content h2 {
         position: absolute;
         top: -80px;
         right: 30px;
-        font-size: 4em;
-        color:rgb(0, 0, 0);
+        font-size: 1.2em;
+        color: rgb(0, 0, 0);
         pointer-events: none;
 }
-.container .card .conten p{
+
+.container .card .content p {
         font-size: 1em;
         color: rgb(1, 1, 3);
         font-weight: 300;
 }
-.container .card .conten a{
+
+.container .card .content a {
         position: relative;
         display: inline-block;
         padding: 8px 20px;
         margin-top: 15px;
-        background: #fff;
-        color: rgba(255, 0, 0, 0.893);
+                background: #9168C3;
+                background: -webkit-linear-gradient(top left, #9168C3, #C70971);
+                background: -moz-linear-gradient(top left, #9168C3, #C70971);
+                background: linear-gradient(to bottom right, #9168C3, #C70971);
+        color:#000204;
         border-radius: 20px;
         text-decoration: none;
+        text-transform: uppercase;
         font-weight: 500;
-        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.386);
+        overflow: hidden;
+        transition: 0.2s;
+
 }
-.hero{
+
+.container .card .content a:hoover{
+        color: #255784;
+        background: #2196f3;
+        box-shadow: ;
+}
+
+.hero {
         width: 100%;
         background-image: url(images/blu\ purple.jpg);
         background-size: cover;
@@ -103,7 +127,7 @@ body::after {
         overflow: hidden;
 }
 
-.logo{
+.logo {
         width: 100px;
         height: 100px;
         border-radius: 25%;
@@ -111,7 +135,7 @@ body::after {
         object-fit: cover;
 }
 
-.navbar{
+.navbar {
         width: 85%;
         height: 15%;
         margin: auto;
@@ -119,7 +143,8 @@ body::after {
         align-items: center;
         justify-content: space-between;
 }
-.content{
+
+.content {
         color: #0e194f;
         position: absolute;
         top: 50%;
@@ -128,37 +153,33 @@ body::after {
         z-index: 2;
 }
 
-h1{
+h1 {
         font-size: 80px;
         margin: 10px 0 30px;
         line-height: 80px;
 }
 
-.sidebar{
+.sidebar {
         width: 50px;
         height: 100vh;
         padding-top: 60px;
-        position:fixed;
+        position: fixed;
         right: 0;
         top: 0;
         z-index: 1;
         transition: 0.5s;
 }
 
-.social-links img{
+.social-links img {
         width: 40px;
         margin: 5px auto;
         cursor: pointer;
 }
 
-.social-links{
+.social-links {
         width: 50px;
         text-align: center;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-}
-
-button{
-
 }
