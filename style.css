@@ -98,11 +98,11 @@ body::after {
         display: inline-block;
         padding: 8px 20px;
         margin-top: 15px;
-                background: #9168C3;
-                background: -webkit-linear-gradient(top left, #9168C3, #C70971);
-                background: -moz-linear-gradient(top left, #9168C3, #C70971);
-                background: linear-gradient(to bottom right, #9168C3, #C70971);
-        color:#000204;
+        background: #055C01;
+        background: -webkit-radial-gradient(center, #055C01, #05E850);
+        background: -moz-radial-gradient(center, #055C01, #05E850);
+        background: radial-gradient(ellipse at center, #055C01, #05E850);
+        color: #000204;
         border-radius: 20px;
         text-decoration: none;
         text-transform: uppercase;
@@ -112,7 +112,7 @@ body::after {
 
 }
 
-.container .card .content a:hoover{
+.container .card .content a:hoover {
         color: #255784;
         background: #2196f3;
         box-shadow: ;
