@@ -50,7 +50,7 @@ body::after {
 
 .container .card {
         position: relative;
-        width: 280px;
+        width: 900px;
         height: 400px;
         margin: 30px;
         box-sizing: 20px 20px 50px rgba(0, 0, 0, 0.5);
@@ -120,7 +120,7 @@ body::after {
 
 .hero {
         width: 100%;
-        background-image: url(images/blu\ purple.jpg);
+        background-image: url(images/secret-3120483.jpg);
         background-size: cover;
         background-position: center;
         position: relative;
