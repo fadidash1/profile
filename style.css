@@ -94,7 +94,7 @@ body::after {
         font-size: 1em;
         color: rgb(1, 1, 3);
         font-weight: 300;
-        text-shadow: 2px 2px 4px #59bffa98;
+        text-shadow: 2px 2px 4px #00e5ff98;
 }
 
 .container .card .content a {
@@ -124,7 +124,7 @@ body::after {
 
 .hero {
         width: 100%;
-        background-image: url(images/green\ dust.jpg);
+        background-image: url(images/glass.jpg);
         background-size: cover;
         background-position: center;
         position: relative;
@@ -184,3 +184,27 @@ h2 {
         pointer-events: none;
         text-shadow: 2px 2px 4px #fa0000a0;
 }
+
+.about-text .skills {
+        display: flex;
+        flex-wrap: wrap;
+}
+
+.about-text .skill-item {
+        background-color: var(--white-alpha-25);
+        border: 1px solid var(--white-alpha-40);
+        pad: 5px 15px;
+        text-transform: capitalize;
+        margin: 0 10px 10px 0;
+        border-radius: 20px;
+}
+.about-text h3 {
+        text-transform: capitalize;
+        font-size: 20px;
+        margin: 20px 0;
+}
+
+
+
+
+
