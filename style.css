@@ -7,15 +7,6 @@
         text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
-body {
-        font-family: 'Rubik', sans-serif;
-        font-size: 14px;
-        font-weight: 400;
-        background: black;
-        color: black;
-        margin-top: 10px;
-}
-
 div {
         display: block;
         position: relative;
@@ -42,7 +33,7 @@ h6 {
 
 .button {
         display: inline-block;
-        background: #97cbfa;
+        background: #000000;
         border-radius: 5px;
         height: 48px;
         -webkit-transition: all 200ms ease;
@@ -57,7 +48,7 @@ h6 {
         font-size: 18px;
         font-weight: 400;
         line-height: 48px;
-        color: #FFFFFF;
+        color: #000000;
         padding-left: 35px;
         padding-right: 35px;
 }
@@ -129,7 +120,7 @@ h6 {
         border: solid 1px #e5e5e5;
         border-radius: 5px;
         outline: none;
-        color: #0e8ce4;
+        color: #000000;
         -webkit-transition: all 200ms ease;
         -moz-transition: all 200ms ease;
         -ms-transition: all 200ms ease;
@@ -189,7 +180,7 @@ h6 {
         padding-top: 15px;
         border: solid 1px #e5e5e5;
         border-radius: 5px;
-        color: #0e8ce4;
+        color: #000000;
         outline: none;
         -webkit-transition: all 200ms ease;
         -moz-transition: all 200ms ease;
@@ -209,12 +200,7 @@ h6 {
         margin-top: 24px;
 }
 
-.panel {
-        width: 100%;
-        height: 50px;
-        background: #fafafa;
-        margin-top: 120px;
-}
+
 
 
 @media only screen and (max-width: 991px) {
@@ -243,17 +229,9 @@ h6 {
 }
 
 
-@media only screen and (max-width: 575px) {
 
-        .contact_submit_button {
-                font-size: 13px;
-                padding-left: 25px;
-                padding-right: 25px;
-        }
-
-}
 
 a {
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
 }
 
