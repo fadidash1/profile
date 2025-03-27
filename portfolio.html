@@ -1,58 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - ALBI DIGITAL</title>
+    <title>Albi Digital Agency - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">FADI ALBITAR</div>
+        <div class="logo">Albi Digital Agency</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">Chi Siamo</a></li>
+                <li><a href="services.html">Servizi</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contatti</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="portfolio">
-        <h1>Our Portfolio</h1>
-        <p>Check out some of our successful projects.</p>
-
-        <div class="portfolio-gallery">
-            <div class="project">
-                <img src="images/project1.jpg" alt="Project 1">
-                <h3>Social Media Branding</h3>
-                <p>A full rebrand and social media strategy for a tech startup.</p>
+    <main>
+        <section class="section" id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Progetto 1">
+                    <h3>Rilancio del brand per [Nome del cliente]</h3>
+                    <p><strong>Cliente:</strong> Nome del cliente<br><strong>Settore:</strong> Ristorazione<br><strong>Descrizione:</strong> Abbiamo collaborato con [Nome del cliente] per rinnovare la loro immagine online e aumentare la loro visibilità sul mercato. Il progetto ha incluso la riprogettazione del sito web, la creazione di una nuova identità visiva e lo sviluppo di una strategia di social media marketing mirata.<br><strong>Risultati:</strong> Il nuovo sito web ha registrato un aumento del 50% del traffico organico, mentre la campagna social ha generato un incremento del 30% delle vendite nel primo trimestre.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Progetto 2">
+                    <h3>Campagna social media per [Nome del cliente]</h3>
+                     <p><strong>Cliente:</strong> Nome del cliente<br><strong>Settore:</strong> Moda<br><strong>Descrizione:</strong> Abbiamo sviluppato e implementato una campagna social media completa per [Nome del cliente], con l'obiettivo di aumentare la consapevolezza del brand, coinvolgere il pubblico e guidare le vendite online. La campagna ha incluso la creazione di contenuti creativi, la gestione delle interazioni e l'utilizzo strategico della pubblicità a pagamento.<br><strong>Risultati:</strong> La campagna ha portato ad un aumento del 40% dei follower, un incremento del 25% dell'engagement e una crescita del 20% delle vendite online.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Progetto 3">
+                    <h3>Sviluppo sito e-commerce per [Nome del cliente]</h3>
+                     <p><strong>Cliente:</strong> Nome del cliente<br><strong>Settore:</strong> E-commerce<br><strong>Descrizione:</strong> Abbiamo progettato e sviluppato un sito web di e-commerce personalizzato per [Nome del cliente], integrando funzionalità avanzate per la gestione del catalogo, il carrello, il checkout e i pagamenti. Il sito è stato ottimizzato per la navigazione mobile e per i motori di ricerca, al fine di garantire un'esperienza utente ottimale e massimizzare le conversioni.<br><strong>Risultati:</strong> Il nuovo sito e-commerce ha registrato un aumento del 60% del tasso di conversione e un incremento del 50% del valore medio dell'ordine.</p>
+                </div>
             </div>
-
-            <div class="project">
-                <img src="images/project2.jpg" alt="Project 2">
-                <h3>Website Development</h3>
-                <p>Designed and developed an e-commerce platform.</p>
-            </div>
-
-            <div class="project">
-                <img src="images/project3.jpg" alt="Project 3">
-                <h3>Ad Campaigns</h3>
-                <p>Launched a high-converting paid ad campaign for a fashion brand.</p>
-            </div>
-
-            <div class="project">
-                <img src="images/project4.jpg" alt="Project 4">
-                <h3>SEO Optimization</h3>
-                <p>Improved organic rankings for a real estate agency.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 ALBI DIGITAL AGENCY. All Rights Reserved.</p>
+        <p>&copy; 2025 Albi Digital Agency. Tutti i diritti riservati.</p>
     </footer>
+    <script>
+       const sections = document.querySelectorAll('.section');
+
+        function revealSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+    </script>
 </body>
 </html>

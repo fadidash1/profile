@@ -1,74 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - ALBI DIGITAL</title>
+    <title>Albi Digital Agency - Servizi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      .nav-menu {
+        display: none;
+        background-color: #003366;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .nav-menu.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-menu ul li {
+        margin-bottom: 20px;
+      }
+
+      .nav-menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-menu ul li a:hover {
+        color: #66B3FF;
+      }
+
+      .menu-icon {
+        display: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 5px;
+        margin-right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        header nav {
+          display: none;
+        }
+
+        .menu-icon {
+          display: block;
+        }
+
+        header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+      }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">FADI ALBITAR</div>
-        <nav>
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="logo text-xl font-bold text-gray-800">Albi Digital Agency</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Chi Siamo</a></li>
+                    <li><a href="services.html">Servizi</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contatti</a></li>
+                </ul>
+            </nav>
+            <div class="menu-icon material-icons">menu</div>
+        </div>
+        <div class="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">Chi Siamo</a></li>
+                <li><a href="services.html">Servizi</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contatti</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
-    <section class="services">
-        <h1>Our Services</h1>
-        <p>We offer comprehensive digital marketing solutions to elevate your brand.</p>
-
-        <div class="packages">
-            <h2>Our Packages</h2>
-            <div class="package">
-                <h3>Basic Package</h3>
-                <p>✔ Social Media Setup<br>✔ 10 Posts Per Month<br>✔ Basic Analytics Report</p>
-                <span>$199/month</span>
+    <main>
+        <section class="section" id="services">
+            <h2>I Nostri Servizi</h2>
+            <div class="services-grid">
+                <div class="service-card light-box">
+                    <h3>Starter Package</h3>
+                    <p>Ideale per piccole imprese e startup che desiderano stabilire una presenza online solida e professionale con un budget contenuto. Questo pacchetto include la creazione e gestione di contenuti di base per Instagram e Facebook, con un focus sull'aumento della visibilità e dell'engagement iniziale.</p>
+                    <ul>
+                        <li>Instagram e Facebook</li>
+                        <li>8-10 post/mese</li>
+                        <li>Design e copywriting di base</li>
+                        <li>3 post/settimana</li>
+                        <li>Interazione con la community</li>
+                        <li>Report mensile</li>
+                        <li>Budget ADS di €200</li>
+                    </ul>
+                </div>
+                <div class="service-card light-box">
+                    <h3>Growth Package</h3>
+                    <p>Pensato per aziende in crescita che vogliono ampliare la propria portata online e aumentare l'interazione con il pubblico. Oltre ai canali del pacchetto Starter, include TikTok, una strategia di contenuti più avanzata e una gestione della community più attiva.</p>
+                    <ul>
+                        <li>Instagram, Facebook e TikTok</li>
+                        <li>15-20 post/mese</li>
+                        <li>Visual e copywriting professionale</li>
+                        <li>5 post/settimana</li>
+                        <li>Gestione community giornaliera</li>
+                        <li>Report bisettimanale</li>
+                        <li>Gestione 1 campagna ADV</li>
+                        <li>1 call strategica/mese</li>
+                    </ul>
+                </div>
+                <div class="service-card light-box">
+                    <h3>Premium Package</h3>
+                    <p>La soluzione ideale per brand affermati che puntano a massimizzare le conversioni e il coinvolgimento attraverso una strategia digitale completa e personalizzata. Include tutti i canali social rilevanti, produzione di contenuti di alta qualità, influencer marketing e gestione ADV avanzata.</p>
+                    <ul>
+                        <li>Instagram, Facebook, TikTok, LinkedIn, Pinterest</li>
+                        <li>25-30 post/mese</li>
+                        <li>Copywriting avanzato e video editing</li>
+                        <li>Influencer marketing (1 coll./mese)</li>
+                        <li>Pubblicazione quotidiana</li>
+                        <li>Gestione community 24/7</li>
+                        <li>Report settimanale e analisi concorrenza</li>
+                        <li>Gestione ADV su 2 piattaforme con A/B testing</li>
+                        <li>2 call strategiche/mese + manager dedicato</li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-            <div class="package">
-                <h3>Standard Package</h3>
-                <p>✔ Everything in Basic<br>✔ 20 Posts Per Month<br>✔ Engagement Boosting</p>
-                <span>$399/month</span>
+        <section class="section" id="add-ons">
+            <h2>Add-Ons per i Pacchetti di Social Media Management</h2>
+            <p>Per personalizzare ulteriormente la gestione dei social media e ottimizzare la strategia digitale, offriamo una gamma di servizi aggiuntivi che possono essere integrati ai pacchetti Starter, Growth e Premium.</p>
+            
+            <div class="add-ons-grid">
+                <div class="service-card light-box add-on-card">
+                    <h3>Video Production</h3>
+                    <p>Aggiunta di contenuti video professionali per Reels, TikTok e annunci pubblicitari, con montaggio avanzato.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €300–€500 al mese.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>Influencer Collaboration</h3>
+                    <p>Gestione di collaborazioni con influencer per aumentare visibilità e engagement.</p>
+                    <p><strong>Costo aggiuntivo:</strong> Varia da €500 a €2,000 al mese, in base al livello dell’influencer.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>SEO Blog Integration</h3>
+                    <p>Creazione di articoli ottimizzati per i motori di ricerca al fine di migliorare il ranking e la visibilità del sito web.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €200 al mese.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>Extra Platform Management</h3>
+                    <p>Possibilità di aggiungere ulteriori piattaforme social come YouTube, Twitter o Telegram.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €250 al mese per piattaforma.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>Live Social Media Coverage</h3>
+                    <p>Copertura in tempo reale di eventi con aggiornamenti costanti e interazione con il pubblico.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €500 per evento.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>Advanced Community Management</h3>
+                    <p>Supporto avanzato nella gestione dei commenti e dei messaggi diretti per garantire un’interazione efficace con il pubblico.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €400 al mese.</p>
+                </div>
+                <div class="service-card light-box add-on-card">
+                    <h3>Social Media Contest & Giveaway</h3>
+                    <p>Organizzazione e gestione di concorsi e giveaway per incrementare l’engagement e la fidelizzazione dei clienti.</p>
+                    <p><strong>Costo aggiuntivo:</strong> €350 al mese.</p>
+                </div>
             </div>
+            <p>Questi servizi possono essere combinati per creare una strategia digitale su misura, massimizzando la crescita e il coinvolgimento del pubblico.</p>
+        </section>
 
-            <div class="package">
-                <h3>Premium Package</h3>
-                <p>✔ Everything in Standard<br>✔ 30 Posts Per Month<br>✔ Paid Ad Campaigns</p>
-                <span>$599/month</span>
-            </div>
-        </div>
+        <section class="section" id="digital-solutions">
+            <h2>Soluzioni Digitali & Servizi Web</h2>
+            <p>Per supportare le aziende nella trasformazione digitale, offriamo una serie di soluzioni mirate alla creazione e ottimizzazione della presenza online e all’efficienza operativa.</p>
 
-        <div class="addons">
-            <h2>Additional Services</h2>
-            <div class="addon">
-                <h3>SEO Optimization</h3>
-                <p>Boost your website’s ranking and visibility.</p>
-                <span>$149</span>
-            </div>
+            <h3>Creazione e Gestione di Siti Web</h3>
+            <ul>
+                <li><strong>Sito Web Vetrina:</strong> Creazione di un sito web professionale con 4–6 pagine, tra cui Home, Servizi, Chi Siamo e Contatti. Il costo per questo servizio è di €1,200 una tantum.</li>
+                <li><strong>E-commerce (Shopify/WooCommerce):</strong> Sviluppo di una piattaforma di vendita online completa con gestione prodotti, pagamenti e integrazione logistica. Il costo parte da €2,500.</li>
+                <li><strong>Manutenzione & Aggiornamenti:</strong> Servizio di aggiornamento tecnico e sicurezza del sito web per garantirne la stabilità e le performance, con un costo che varia tra €100 e €300 al mese.</li>
+                <li><strong>SEO e Ottimizzazione Velocità:</strong> Interventi per migliorare il posizionamento del sito web sui motori di ricerca e aumentarne la velocità di caricamento. Costo una tantum di €500.</li>
+            </ul>
 
-            <div class="addon">
-                <h3>Custom Branding Kit</h3>
-                <p>Get a custom logo, brand colors, and typography.</p>
-                <span>$249</span>
-            </div>
+            <h3>Supporto Microsoft Office & Strumenti Digitali</h3>
+            <ul>
+                <li><strong>Setup e Configurazione Microsoft 365:</strong> Installazione e configurazione di Microsoft Office, email aziendale e spazio di archiviazione su OneDrive. Il servizio ha un costo di €250 una tantum.</li>
+                <li><strong>Formazione Microsoft Office:</strong> Sessioni di training personalizzato su strumenti come Word, Excel, PowerPoint e Teams, al fine di massimizzare la produttività aziendale. Il costo è di €300 per sessione.</li>
+                <li><strong>Supporto IT & Assistenza Remota:</strong> Servizio di assistenza tecnica per risoluzione problemi software e configurazioni. Costo aggiuntivo di €100 al mese.</li>
+            </ul>
 
-            <div class="addon">
-                <h3>Email Marketing</h3>
-                <p>Grow your audience with targeted email campaigns.</p>
-                <span>$199/month</span>
-            </div>
-        </div>
-    </section>
+            <h3>Preparazione e Ottimizzazione per il Digitale</h3>
+            <ul>
+                <li><strong>Consulenza Digitale Personalizzata:</strong> Analisi strategica per migliorare la digitalizzazione dell’azienda e ottimizzare i processi operativi. Il servizio ha un costo di €150 all’ora.</li>
+                <li><strong>Automazione dei Processi Aziendali:</strong> Integrazione di strumenti digitali per automatizzare attività ripetitive, come CRM, chatbot e email marketing. Il costo parte da €500.</li>
+                 <li><strong>Creazione di Funnel di Vendita e Email Marketing:</strong> Progettazione e gestione di funnel di vendita digitali e campagne di email marketing per generare lead e aumentare le conversioni. Il costo per questo servizio è di €600 al mese.</li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 ALBI DIGITAL AGENCY. All Rights Reserved.</p>
+        <p>© 2025 Albi Digital Agency. Tutti i diritti riservati.</p>
     </footer>
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        function revealSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+    </script>
 </body>
 </html>

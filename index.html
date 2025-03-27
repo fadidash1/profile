@@ -1,57 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALBI DIGITAL AGENCY</title>
+    <title>Albi Digital Agency - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">FADI ALBITAR</div>
+        <div class="logo">Albi Digital Agency</div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Chi Siamo</a></li>
+                <li><a href="services.html">Servizi</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contatti</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Dominate Digital Marketing</h1>
-            <p>Join our exclusive event and learn the secrets to success in social media marketing and branding.</p>
-            <input type="email" placeholder="Enter your email">
-            <button>Join Now</button>
-        </div>
-        <img src="images/logo.png.png" alt="Digital Marketing Expert">
-    </section>
+    <main>
+        <section class="hero-section">
+            <h1>Trasforma la tua presenza digitale con Albi Digital Agency</h1>
+            <p>Soluzioni digitali su misura per far crescere il tuo business.</p>
+            <button class="cta-button">Scopri di più</button>
+        </section>
 
-    <section class="countdown">
-        <h2>Event Starts In:</h2>
-        <div id="timer">
-            <span>10</span> Days
-            <span>12</span> Hours
-            <span>45</span> Minutes
-            <span>30</span> Seconds
-        </div>
-    </section>
+        <section class="section" id="about">
+            <h2>Chi Siamo</h2>
+            <p>Albi Digital Agency è un'agenzia all'avanguardia, specializzata nell'aiutare le aziende di tutte le dimensioni a prosperare nel mondo digitale. Con un approccio strategico e creativo, offriamo una gamma completa di servizi per migliorare la tua visibilità online, attrarre nuovi clienti e raggiungere i tuoi obiettivi di business.</p>
+        </section>
 
-    <section class="learn">
-        <h2>What You'll Learn</h2>
-        <div class="grid">
-            <div class="card">📈 How to dominate social media</div>
-            <div class="card">🚀 The best growth strategies</div>
-            <div class="card">💰 How to get high-paying clients</div>
-        </div>
-        <button>Join Now</button>
-    </section>
+        <section class="section" id="services">
+            <h2>I Nostri Servizi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Social Media Marketing</h3>
+                    <p>Creiamo contenuti coinvolgenti e strategie personalizzate per aumentare la tua presenza sui social media e costruire una community attiva intorno al tuo brand.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Design e Sviluppo</h3>
+                    <p>Realizziamo siti web moderni, user-friendly e ottimizzati per la conversione, che riflettono l'identità del tuo brand e offrono un'esperienza utente eccellente.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SEO e Content Marketing</h3>
+                    <p>Miglioriamo il posizionamento del tuo sito web sui motori di ricerca e creiamo contenuti di valore che attraggono il tuo target di riferimento e consolidano la tua autorevolezza nel settore.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contattaci</h2>
+             <p>Pronto a portare il tuo business al livello successivo? Contattaci oggi stesso per una consulenza gratuita e scopri come Albi Digital Agency può aiutarti a raggiungere il successo online.</p>
+            <div class="contact-form">
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="messaggio">Messaggio:</label>
+                    <textarea id="messaggio" name="messaggio" required></textarea>
+                    <button type="submit">Invia</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 ALBI DIGITAL AGENCY. All Rights Reserved.</p>
+        <p>&copy; 2025 Albi Digital Agency. Tutti i diritti riservati.</p>
     </footer>
+
+    <script>
+       const sections = document.querySelectorAll('.section');
+
+        function revealSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+    </script>
 </body>
 </html>
