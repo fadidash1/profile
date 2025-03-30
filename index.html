@@ -3,90 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albi Digital Agency - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">Albi Digital Agency</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Chi Siamo</a></li>
-                <li><a href="services.html">Servizi</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <h1>Trasforma la tua presenza digitale con Albi Digital Agency</h1>
-            <p>Soluzioni digitali su misura per far crescere il tuo business.</p>
-            <button class="cta-button">Scopri di più</button>
-        </section>
-
-        <section class="section" id="about">
-            <h2>Chi Siamo</h2>
-            <p>Albi Digital Agency è un'agenzia all'avanguardia, specializzata nell'aiutare le aziende di tutte le dimensioni a prosperare nel mondo digitale. Con un approccio strategico e creativo, offriamo una gamma completa di servizi per migliorare la tua visibilità online, attrarre nuovi clienti e raggiungere i tuoi obiettivi di business.</p>
-        </section>
-
-        <section class="section" id="services">
-            <h2>I Nostri Servizi</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Social Media Marketing</h3>
-                    <p>Creiamo contenuti coinvolgenti e strategie personalizzate per aumentare la tua presenza sui social media e costruire una community attiva intorno al tuo brand.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Web Design e Sviluppo</h3>
-                    <p>Realizziamo siti web moderni, user-friendly e ottimizzati per la conversione, che riflettono l'identità del tuo brand e offrono un'esperienza utente eccellente.</p>
-                </div>
-                <div class="service-card">
-                    <h3>SEO e Content Marketing</h3>
-                    <p>Miglioriamo il posizionamento del tuo sito web sui motori di ricerca e creiamo contenuti di valore che attraggono il tuo target di riferimento e consolidano la tua autorevolezza nel settore.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <h2>Contattaci</h2>
-             <p>Pronto a portare il tuo business al livello successivo? Contattaci oggi stesso per una consulenza gratuita e scopri come Albi Digital Agency può aiutarti a raggiungere il successo online.</p>
-            <div class="contact-form">
-                <form>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="messaggio">Messaggio:</label>
-                    <textarea id="messaggio" name="messaggio" required></textarea>
-                    <button type="submit">Invia</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Albi Digital Agency. Tutti i diritti riservati.</p>
-    </footer>
-
-    <script>
-       const sections = document.querySelectorAll('.section');
-
-        function revealSections() {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (sectionTop < windowHeight * 0.8) {
-                    section.classList.add('show');
-                }
-            });
+    <title>Fadi Albitar - Digital Marketing & Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0A0A0A; /* Nero Abisso */
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;  /* Impedisce la barra di scorrimento orizzontale */
+        }
+        header {
+            background: linear-gradient(to right, #08F7FE, #7D00FF); /* Gradiente da Blu Elettrico Neon a Viola Iper */
+            color: #0A0A0A;
+            text-align: center;
+            padding: 2.5rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+            overflow: hidden; /* Nasconde le particelle se escono */
+        }
+        header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            font-weight: 800;  /* Usa un peso del carattere più pesante */
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            z-index: 10; /* Assicura che il testo sia sopra le particelle */
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            z-index: 10; /* Assicura che il testo sia sopra le particelle */
+        }
+        section {
+            padding: 3rem 1rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: auto;
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+            z-index: 1; /* Assicura che le sezioni siano sopra lo sfondo */
+        }
+        section h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #08F7FE; /* Blu Elettrico Neon */
+            text-shadow: 1px 1px 4px #08F7FE;
+        }
+        #about img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid #08F7FE; /* Blu Elettrico Neon */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #eee;
+        }
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-list div {
+            background-color: #0A0A0A; /* Nero Abisso */
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            flex: 1 1 350px;
+            text-align: left;
+            border: 1px solid #4A0033; /* Bagliore Cremisi Scuro */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-list div:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            border-color: #FF3131;
         }
 
-        window.addEventListener('scroll', revealSections);
+        .service-list div h3 {
+            margin-bottom: 1.5rem;
+            color: #FFAA00; /* Oro Cyber */
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .service-list div p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+        #portfolio {
+            background-color: #4A0033; /* Bagliore Cremisi Scuro */
+            padding-bottom: 4rem;
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+        }
+        #portfolio h2{
+            color: #08F7FE;
+        }
+        .project {
+            background-color: #0A0A0A; /* Nero Abisso */
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            text-align: left;
+            border: 1px solid #4A0033; /* Bagliore Cremisi Scuro */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            border-color: #FF3131;
+        }
+        .project h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: #FFAA00; /* Oro Cyber */
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .project p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+        #skills {
+            padding-bottom: 4rem;
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+        }
+        #skills h2{
+            color: #08F7FE;
+        }
+        #skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+        #skills ul li {
+            background-color: #39FF14; /* Verde Acido Neon */
+            color: #0A0A0A;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        #skills ul li:hover {
+            background-color: #FF3131; /* Rosso Olografico */
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+        }
+        #contact {
+            color: #ffffff;
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+        }
+        #contact h2{
+            color:#08F7FE; /* Blu Elettrico Neon */
+            text-shadow: 1px 1px 4px #08F7FE;
+        }
+        #contact p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #eee;
+        }
+        footer {
+            background-color: #0A0A0A; /* Nero Abisso */
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #4A0033; /* Bagliore Cremisi Scuro */
+            position: relative; /* Necessario per il posizionamento assoluto degli elementi interni */
+            z-index: 10;
+        }
+        footer p{
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .service-list {
+                flex-direction: column;
+            }
+            #skills ul {
+                justify-content: center;
+            }
+            header h1{
+                font-size: 2.5rem;
+            }
+            header p{
+                font-size: 1rem;
+            }
+            section h2{
+                font-size: 2rem;
+            }
+        }
+
+        /* Parallax Background Styles */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        #bg-layer1 {
+            background-image: url('https://images.unsplash.com/photo-1614850715740-e1b15f1d1f36?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Sostituisci con un'immagine futuristica della città */
+            transform: translateZ(0);
+        }
+        #bg-layer2 {
+            background-image: url('https://images.unsplash.com/photo-1542339394-712476c2769c?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Sostituisci con un'immagine dello spazio/nebulosa */
+            transform: translateZ(-100px);
+            opacity: 0.7;
+        }
+        #bg-layer3 {
+            background-image: url('https://images.unsplash.com/photo-1580489944062-e3b1319dd761?q=80&w=3161&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Sostituisci con linee astratte al neon */
+            transform: translateZ(-200px);
+            opacity: 0.5;
+            animation: move-bg 4s linear infinite;
+        }
+        @keyframes move-bg {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Le particelle dovrebbero essere sopra i livelli di parallasse */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div class="parallax-bg">
+        <div id="bg-layer1" class="parallax-layer"></div>
+        <div id="bg-layer2" class="parallax-layer"></div>
+        <div id="bg-layer3" class="parallax-layer"></div>
+    </div>
+    <canvas id="particle-canvas"></canvas>
+    <header>
+        <h1>Fadi Albitar</h1>
+        <p>Digital Marketing & Web Development Freelancer</p>
+    </header>
+
+    <section id="about">
+        <h2>Chi Sono</h2>
+        <img src="/images/fdimg.jpg" alt="Fadi Albitar">
+        <p>Sono un Freelancer di Digital Marketing e Sviluppo Web con la passione di aiutare le aziende a crescere online. Offro una gamma di servizi per soddisfare le tue esigenze digitali.</p>
+    </section>
+
+    <section id="services">
+        <h2>Servizi</h2>
+        <div class="service-list">
+            <div>
+                <h3>Social Media Marketing</h3>
+                <p>Aiuto le aziende a costruire una forte presenza sui social media attraverso la creazione di contenuti, la gestione della community e la pubblicità mirata.</p>
+            </div>
+            <div>
+                <h3>Sviluppo Web</h3>
+                <p>Progetto e sviluppo siti web reattivi e facili da usare che mettono in mostra il tuo marchio e guidano i risultati.</p>
+            </div>
+            <div>
+                <h3>Ottimizzazione per i Motori di Ricerca (SEO)</h3>
+                <p>Ottimizzo i siti web per posizionarli più in alto nei risultati dei motori di ricerca, aumentando la visibilità e il traffico organico.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="project">
+            <h3>Progetto 1</h3>
+            <p>Descrizione del Progetto 1...</p>
+        </div>
+        <div class="project">
+            <h3>Progetto 2</h3>
+            <p>Descrizione del Progetto 2...</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Competenze</h2>
+        <ul>
+            <li><i class="fab fa-html5"></i> HTML5</li>
+            <li><i class="fab fa-css3-alt"></i> CSS3</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-react"></i> React</li>
+            <li>SEO</li>
+            <li>Gestione dei Social Media</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contatti</h2>
+        <p>Email: albitaref@gmail.com</p>
+        <p>Telefono: +39371 658 0667</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Parallax e Animazione delle Particelle
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('particle-canvas') });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor("#0D0D0D"); // Corrisponde al Nero Spazio Profondo
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 200;
+        const positions = new Float32Array(particlesCount * 3);
+        const colors = new Float32Array(particlesCount * 3);
+        for (let i = 0; i < particlesCount; i++) {
+            const i3 = i * 3;
+            positions[i3] = (Math.random() - 0.5) * 2000;
+            positions[i3 + 1] = (Math.random() - 0.5) * 2000;
+            positions[i3 + 2] = (Math.random() - 0.5) * 2000;
+            const color = new THREE.Color();
+            color.setHSL(Math.random(), 1, 0.5); // HSL casuale per colori neon
+            colors[i3] = color.r;
+            colors[i3 + 1] = color.g;
+            colors[i3 + 2] = color.b;
+        }
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 8,
+            vertexColors: true, // Usa l'attributo colore
+            sizeAttenuation: true,
+        });
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+        camera.position.z = 500;
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.005;
+            particles.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(newWidth, newHeight);
+        });
+        const bgLayer1 = document.getElementById('bg-layer1');
+        const bgLayer2 = document.getElementById('bg-layer2');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            bgLayer1.style.transform = `translateZ(0) translateY(${scrollY * 0.2}px)`;
+            bgLayer2.style.transform = `translateZ(-100px) translateY(${scrollY * 0.1}px)`;
+        });
     </script>
 </body>
 </html>
