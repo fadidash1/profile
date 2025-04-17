@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fadi Albitar - Digital Marketing & Web Developer</title>
+    <title>Fadi Albitar - Digital Marketing & Web Developer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Saira+Stencil+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -592,6 +592,15 @@
         .pulsing-glow {
             animation: pulse-glow 2s infinite;
         }
+
+        /* Tilt effect on elements */
+        .tilt {
+            transition: transform 0.5s ease;
+        }
+
+        .tilt:hover {
+            transform: perspective(1000px) rotateX(-10deg) rotateY(25deg) scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -602,22 +611,22 @@
     </header>
     <section id="about">
         <h2>Chi Sono</h2>
-        <img src="/images/fdimg.png" alt="Fadi Albitar">
+        <img src="/images/fdimg.png" alt="Fadi Albitar" class = "tilt">
         <p>Sono un Freelancer di Digital Marketing e Sviluppo Web con la passione di aiutare le aziende a crescere online. Offro una gamma di servizi per soddisfare le tue esigenze digitali.</p>
     </section>
 
     <section id="services">
         <h2>Servizi</h2>
         <div class="service-list">
-            <div class="glass-box">
+            <div class="glass-box tilt">
                 <h3 class="icon-glow"><i class="fas fa-signal pulsing-glow"></i> Social Media Marketing</h3>
                 <p>Aiuto le aziende a costruire una forte presenza sui social media attraverso la creazione di contenuti, la gestione della community e la pubblicità mirata.</p>
             </div>
-            <div class="glass-box">
+            <div class="glass-box tilt">
                 <h3 class="icon-glow"><i class="fas fa-code pulsing-glow"></i> Sviluppo Web</h3>
                 <p>Progetto e sviluppo siti web reattivi e facili da usare che mettono in mostra il tuo marchio e guidano i risultati.</p>
             </div>
-            <div class="glass-box">
+            <div class="glass-box tilt">
                 <h3 class="icon-glow"><i class="fas fa-search pulsing-glow"></i> Ottimizzazione per i Motori di Ricerca (SEO)</h3>
                 <p>Ottimizzo i siti web per posizionarli più in alto nei risultati dei motori di ricerca, aumentando la visibilità e il traffico organico.</p>
             </div>
@@ -626,28 +635,28 @@
 
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <div class="project">
+        <div class="project tilt">
             <h3>Progetto 1</h3>
             <p>Un semplice gioco di scacchi che ho sviluppato.</p>
             <a href="https://simplechessfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Gioca a Scacchi
             </a>
         </div>
-        <div class="project">
+        <div class="project tilt">
             <h3>Progetto 2</h3>
             <p>Una semplice applicazione di lista di cose da fare che ho sviluppato.</p>
             <a href="https://todolistfd.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Visualizza la ToDo List
             </a>
         </div>
-        <div class="project">
+        <div class="project tilt">
             <h3>Progetto 3</h3>
             <p>Un sito web che mostra la storia del Jazz.</p>
             <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Visualizza la Storia del Jazz
             </a>
         </div>
-        <div class="project">
+        <div class="project tilt">
             <h3>Progetto 4</h3>
             <p>Un sito web di un negozio di caffè.</p>
             <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
@@ -656,7 +665,7 @@
         </div>
     </section>
 
-    <section id="skills" class="glowing-border">
+    <section id="skills" class="glowing-border tilt">
         <h2>Competenze</h2>
         <ul>
             <li class="icon-glow"><i class="fab fa-html5"></i> HTML5</li>
@@ -668,7 +677,7 @@
         </ul>
     </section>
 
-    <section id="contact" class="glowing-border">
+    <section id="contact" class="glowing-border tilt">
         <h2>Contatti</h2>
         <p>Email: <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a></p>
         <p>Telefono: <a href="tel:+393716580667">+39 371 658 0667</a></p>
@@ -717,7 +726,6 @@
             positions[i3] = (Math.random() - 0.5) * 2000;
             positions[i3 + 1] = (Math.random() - 0.5) * 2000;
             positions[i3 + 2] = (Math.random() - 0.5) * 2000;
-
             const color = new THREE.Color();
             color.setHSL(Math.random(), 1, 0.5);
             colors[i3] = color.r;
