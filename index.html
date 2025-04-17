@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Saira+Stencil+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         body, html {
             height: 100%;
@@ -28,7 +29,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
-            color: #F0F0F0;
+            color: #FFFFFF;
             background-color: #0D0D0D;
         }
         section {
@@ -45,7 +46,7 @@
             background-color: rgba(13, 13, 13, 0.95);
         }
         h2 {
-            color: #FF69B4;
+            color: #DA3DF5;
             font-size: 3rem;
             margin-bottom: 30px;
             text-align: center;
@@ -56,14 +57,15 @@
             animation: pulse 2s infinite alternate;
         }
         @keyframes pulse {
-            from { text-shadow: 0 0 12px rgba(255, 105, 180, 0.9); }
-            to { text-shadow: 0 0 24px rgba(255, 105, 180, 0.6); }
+            from { text-shadow: 0 0 12px rgba(218, 61, 245, 0.9); }
+            to { text-shadow: 0 0 24px rgba(218, 61, 245, 0.6); }
         }
         p {
             font-size: 1.2rem;
             margin-bottom: 25px;
             text-align: justify;
-            color: #EEEEEE;
+            color: #AAAAAA;
+            font-family: 'Orbitron', sans-serif;
         }
         ul {
             list-style: none;
@@ -72,19 +74,20 @@
         li {
             margin-bottom: 15px;
             font-size: 1.2rem;
-            color: #F5F5F5;
+            color: #FFFFFF;
+            font-family: 'Rajdhani', sans-serif;
         }
         li i {
             margin-right: 15px;
-            color: #00CED1;
+            color: #00FFF7;
         }
         a {
-            color: #FF69B4;
+            color: #DA3DF5;
             text-decoration: none;
             transition: color 0.3s ease, font-weight 0.3s ease;
         }
         a:hover {
-            color: #40E0D0;
+            color: #9400FF;
             font-weight: 600;
         }
 
@@ -97,39 +100,50 @@
             border-radius: 15px;
         }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #FF69B4, #DA70D6);
+            background: linear-gradient(to bottom, #DA3DF5, #9400FF);
             border-radius: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #FF80BF, #E68ADF);
+            background: linear-gradient(to bottom, #E68ADF, #A737FF);
         }
 
         /* Header Styles */
         header {
             text-align: center;
-            padding: 80px 20px;
+            padding: 150px 20px;
             background-color: rgba(13, 13, 13, 0.9);
-            border-bottom: 1px solid #40E0D0;
+            border-bottom: 1px solid #00FFF7;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         header h1 {
             font-size: 4rem;
-            color: #FF69B4;
+            color: #DA3DF5;
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 700;
             letter-spacing: 0.1em;
             margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+            text-shadow: 0 0 15px rgba(218, 61, 245, 0.8);
+            animation: fadeIn 2s ease, pulse 2s infinite alternate;
         }
         header p {
             font-size: 1.5rem;
-            color: #E0F7FA;
+            color: #FFFFFF;
             font-family: 'Orbitron', sans-serif;
             font-weight: 600;
-            text-shadow: 0 0 8px rgba(0, 205, 205, 0.6);
+            text-shadow: 0 0 8px rgba(0, 255, 247, 0.6);
+            opacity: 0;
+            animation: fadeIn 2s ease 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* About Section */
@@ -145,8 +159,8 @@
             height: auto;
             border-radius: 50%;
             margin-bottom: 30px;
-            border: 5px solid #DA70D6;
-            box-shadow: 0 0 20px rgba(218, 112, 214, 0.7);
+            border: 5px solid #9400FF;
+            box-shadow: 0 0 20px rgba(148, 0, 255, 0.7);
             transition: transform 0.3s ease;
         }
         #about img:hover {
@@ -157,8 +171,8 @@
         }
         #about {
             background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #FF69B4;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            border: 2px solid #DA3DF5;
+            box-shadow: 0 0 20px rgba(218, 61, 245, 0.5);
         }
 
         /* Services Section */
@@ -170,19 +184,19 @@
         }
         .service-list div {
             padding: 30px;
-            border: 1px solid #39FF14;
+            border: 1px solid #00FFF7;
             border-radius: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(0, 205, 205, 0.15);
+            background-color: rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .service-list div:hover {
             transform: translateY(-15px);
-            box-shadow: 0 12px 24px rgba(0, 205, 205, 0.6);
-            background-color: rgba(0, 205, 205, 0.25);
+            box-shadow: 0 12px 24px rgba(0, 255, 247, 0.6);
+            background-color: rgba(255, 255, 255, 0.1);
         }
         .service-list h3 {
-            color: #FF69B4;
+            color: #DA3DF5;
             margin-bottom: 15px;
             font-size: 2rem;
             font-family: 'Saira Stencil One', sans-serif;
@@ -191,13 +205,14 @@
         }
         .service-list p {
             font-size: 1.2rem;
-            color: #EEEEEE;
+            color: #AAAAAA;
             line-height: 1.8;
+            font-family: 'Orbitron', sans-serif;
         }
         #services {
             background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #39FF14;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            border: 2px solid #00FFF7;
+            box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
         }
 
         /* Portfolio Section */
@@ -211,31 +226,32 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             background-color: rgba(0, 0, 0, 0.8);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border: 2px solid #8A2BE2;
+            border: 2px solid #9400FF;
         }
         .project:hover {
             transform: translateY(-15px);
-            box-shadow: 0 12px 24px rgba(138, 43, 226, 0.9);
-            background-color: rgba(138, 43, 226, 0.1);
+            box-shadow: 0 12px 24px rgba(148, 0, 255, 0.9);
+            background-color: rgba(148, 0, 255, 0.1);
         }
         .project h3 {
-            color: #FF69B4;
+            color: #DA3DF5;
             margin-bottom: 20px;
             font-size: 2rem;
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 600;
             letter-spacing: 0.03em;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            text-shadow: 0 0 10px rgba(218, 61, 245, 0.8);
         }
         .project p {
             font-size: 1.2rem;
-            color: #EEEEEE;
+            color: #AAAAAA;
             line-height: 1.8;
+            font-family: 'Orbitron', sans-serif;
         }
         .project a {
             display: inline-block;
-            background-color: #FF69B4;
-            color: #0A0A0A;
+            background-color: #DA3DF5;
+            color: #0D0D0D;
             padding: 1rem 2rem;
             border-radius: 1rem;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -244,20 +260,22 @@
             font-weight: 600;
             font-size: 1.3rem;
             margin-top: 1rem;
+            font-family: 'Rajdhani', sans-serif;
         }
         .project a:hover {
             transform: translateY(-7px);
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-            background-color: #FF80BF;
-            color: #000;
+            background-color: #9400FF;
+            color: #FFFFFF;
+            text-shadow: 0 0 15px rgba(148, 0, 255, 0.8);
         }
         #portfolio {
             background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #8A2BE2;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+            border: 2px solid #9400FF;
+            box-shadow: 0 0 20px rgba(148, 0, 255, 0.5);
         }
         #portfolio h2{
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+            text-shadow: 0 0 15px rgba(218, 61, 245, 0.8);
         }
 
         /* Skills Section */
@@ -266,14 +284,14 @@
             padding-top: 120px;
         }
         #skills h2 {
-            color: #FF69B4;
+            color: #DA3DF5;
             font-size: 3rem;
             margin-bottom: 30px;
             text-align: center;
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 700;
             letter-spacing: 0.05em;
-            text-shadow: 0 0 12px rgba(255, 105, 180, 0.9);
+            text-shadow: 0 0 12px rgba(218, 61, 245, 0.9);
             animation: pulse 2s infinite alternate;
         }
         #skills ul {
@@ -284,27 +302,29 @@
             margin-top: 50px;
         }
         #skills li {
-            background-color: rgba(0, 205, 205, 0.15);
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 15px 30px;
             border-radius: 10px;
-            border: 1px solid #40E0D0;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #00FFF7;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
             font-size: 1.3rem;
-            color: #F5F5F5;
+            color: #FFFFFF;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Rajdhani', sans-serif;
         }
         #skills li:hover {
-            background-color: rgba(0, 205, 205, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-7px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 10px #9400FF;
         }
         #skills li i{
             font-size: 1.5rem;
         }
         #skills {
             background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #40E0D0;
-            box-shadow: 0 0 20px rgba(0, 205, 205, 0.5);
+            border: 2px solid #00FFF7;
+            box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
         }
 
         /* Contact Section */
@@ -318,24 +338,26 @@
             border: 2px solid #FFDB58;
         }
         #contact h2 {
-            color: #FF69B4;
+            color: #DA3DF5;
             font-size: 3rem;
             margin-bottom: 30px;
             text-align: center;
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 700;
             letter-spacing: 0.05em;
-            text-shadow: 0 0 12px rgba(255, 105, 180, 0.9);
+            text-shadow: 0 0 12px rgba(218, 61, 245, 0.9);
             animation: pulse 2s infinite alternate;
         }
         #contact p {
             font-size: 1.3rem;
-            color: #EEEEEE;
+            color: #AAAAAA;
             margin-bottom: 25px;
             text-align: center;
+            font-family: 'Orbitron', sans-serif;
         }
         #contact p a{
             font-weight: 600;
+            font-family: 'Rajdhani', sans-serif;
         }
         #contact {
             background-color: rgba(13, 13, 13, 0.85);
@@ -352,10 +374,10 @@
         footer {
             text-align: center;
             padding: 30px;
-            border-top: 1px solid #40E0D0;
+            border-top: 1px solid #00FFF7;
             margin-top: 80px;
             background-color: #0D0D0D;
-            color: #E0F7FA;
+            color: #FFFFFF;
             font-size: 1.2rem;
             font-family: 'Poppins', sans-serif;
         }
@@ -383,7 +405,7 @@
             li{
                 font-size: 1rem;
             }
-            .project a{
+             .project a{
                 font-size: 1rem;
                 padding: 0.8rem 1.5rem;
             }
@@ -416,21 +438,21 @@
 
         /* Specific styling for links and interactive elements */
         a {
-            color: #FF69B4;
+            color: #DA3DF5;
             text-decoration: none;
             transition: color 0.3s ease, font-weight 0.3s ease, text-shadow 0.3s ease;
         }
 
         a:hover {
-            color: #40E0D0;
+            color: #9400FF;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(64, 224, 208, 0.7);
+            text-shadow: 0 0 10px #9400FF;
         }
 
         .project a {
             display: inline-block;
-            background-color: #FF69B4;
-            color: #0A0A0A;
+            background-color: #DA3DF5;
+            color: #0D0D0D;
             padding: 1rem 2rem;
             border-radius: 1rem;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -439,32 +461,136 @@
             font-weight: 600;
             font-size: 1.3rem;
             margin-top: 1rem;
+            font-family: 'Rajdhani', sans-serif;
         }
 
         .project a:hover {
             transform: translateY(-7px);
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-            background-color: #FF80BF;
-            color: #000;
-            text-shadow: 0 0 15px rgba(255, 130, 175, 0.8);
+            background-color: #9400FF;
+            color: #FFFFFF;
+            text-shadow: 0 0 15px rgba(148, 0, 255, 0.8);
         }
 
         #skills li {
-            background-color: rgba(0, 205, 205, 0.15);
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 15px 30px;
             border-radius: 10px;
-            border: 1px solid #40E0D0;
+            border: 1px solid #00FFF7;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
             font-size: 1.3rem;
-            color: #F5F5F5;
+            color: #FFFFFF;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Rajdhani', sans-serif;
         }
 
         #skills li:hover {
-            background-color: rgba(0, 205, 205, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-7px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            text-shadow: 0 0 10px rgba(64, 224, 208, 0.7);
+            text-shadow: 0 0 10px #9400FF;
+        }
+
+        /* Cursor Trail */
+        .cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 247, 0.8);
+            pointer-events: none;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        /* Button Hover Ripple */
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-effect:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(0, 255, 247, 0.5);
+            border-radius: 100%;
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .ripple-effect.animate:after {
+            animation: ripple 0.6s linear;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(100);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism Styles */
+        .glass-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .glass-box:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .glowing-border {
+            border: 2px solid;
+            border-color: rgba(0, 255, 247, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.5);
+            border-radius: 1rem;
+        }
+        .glowing-border:hover {
+            border-color: rgba(0, 255, 247, 0.7);
+            box-shadow: 0 0 25px rgba(0, 255, 247, 0.8);
+        }
+        .neon-button {
+            background: transparent;
+            border: 2px solid #00FFF7;
+            color: #00FFF7;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px #00FFF7;
+            transition: all 0.3s ease;
+        }
+        .neon-button:hover {
+            background: #00FFF7;
+            color: #0D0D0D;
+            box-shadow: 0 0 24px #00FFF7, 0 0 48px #00FFF7;
+        }
+        .icon-glow i {
+            transition: text-shadow 0.3s ease;
+        }
+        .icon-glow:hover i {
+            text-shadow: 0 0 10px #00FFF7;
+        }
+        /* Keyframe for pulsing glow */
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px rgba(0, 255, 247, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 255, 247, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(0, 255, 247, 0.5); }
+        }
+
+        .pulsing-glow {
+            animation: pulse-glow 2s infinite;
         }
     </style>
 </head>
@@ -472,6 +598,7 @@
     <canvas id="particle-canvas"></canvas>
     <header>
         <h1>Fadi Albitar</h1>
+        <p>Benvenuti nel mio Neonverso Digitale</p>
     </header>
     <section id="about">
         <h2>Chi Sono</h2>
@@ -482,16 +609,16 @@
     <section id="services">
         <h2>Servizi</h2>
         <div class="service-list">
-            <div>
-                <h3>Social Media Marketing</h3>
+            <div class="glass-box">
+                <h3 class="icon-glow"><i class="fas fa-signal pulsing-glow"></i> Social Media Marketing</h3>
                 <p>Aiuto le aziende a costruire una forte presenza sui social media attraverso la creazione di contenuti, la gestione della community e la pubblicità mirata.</p>
             </div>
-            <div>
-                <h3>Sviluppo Web</h3>
+            <div class="glass-box">
+                <h3 class="icon-glow"><i class="fas fa-code pulsing-glow"></i> Sviluppo Web</h3>
                 <p>Progetto e sviluppo siti web reattivi e facili da usare che mettono in mostra il tuo marchio e guidano i risultati.</p>
             </div>
-            <div>
-                <h3>Ottimizzazione per i Motori di Ricerca (SEO)</h3>
+            <div class="glass-box">
+                <h3 class="icon-glow"><i class="fas fa-search pulsing-glow"></i> Ottimizzazione per i Motori di Ricerca (SEO)</h3>
                 <p>Ottimizzo i siti web per posizionarli più in alto nei risultati dei motori di ricerca, aumentando la visibilità e il traffico organico.</p>
             </div>
         </div>
@@ -502,46 +629,46 @@
         <div class="project">
             <h3>Progetto 1</h3>
             <p>Un semplice gioco di scacchi che ho sviluppato.</p>
-            <a href="https://simplechessfadi.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://simplechessfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Gioca a Scacchi
             </a>
         </div>
         <div class="project">
             <h3>Progetto 2</h3>
             <p>Una semplice applicazione di lista di cose da fare che ho sviluppato.</p>
-            <a href="https://todolistfd.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://todolistfd.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Visualizza la ToDo List
             </a>
         </div>
         <div class="project">
             <h3>Progetto 3</h3>
             <p>Un sito web che mostra la storia del Jazz.</p>
-            <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Visualizza la Storia del Jazz
             </a>
         </div>
         <div class="project">
             <h3>Progetto 4</h3>
             <p>Un sito web di un negozio di caffè.</p>
-            <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
                 Visualizza il Coffee Shop
             </a>
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="glowing-border">
         <h2>Competenze</h2>
         <ul>
-            <li><i class="fab fa-html5"></i> HTML5</li>
-            <li><i class="fab fa-css3-alt"></i> CSS3</li>
-            <li><i class="fab fa-js"></i> JavaScript</li>
-            <li><i class="fab fa-react"></i> React.js</li>
-            <li><i class="fas fa-search"></i> SEO</li>
-            <li><i class="fas fa-users"></i> Gestione dei Social Media</li>
+            <li class="icon-glow"><i class="fab fa-html5"></i> HTML5</li>
+            <li class="icon-glow"><i class="fab fa-css3-alt"></i> CSS3</li>
+            <li class="icon-glow"><i class="fab fa-js"></i> JavaScript</li>
+            <li class="icon-glow"><i class="fab fa-react"></i> React.js</li>
+            <li class="icon-glow"><i class="fas fa-search"></i> SEO</li>
+            <li class="icon-glow"><i class="fas fa-users"></i> Gestione dei Social Media</li>
         </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="glowing-border">
         <h2>Contatti</h2>
         <p>Email: <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a></p>
         <p>Telefono: <a href="tel:+393716580667">+39 371 658 0667</a></p>
@@ -551,14 +678,28 @@
         <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Ensure Three.js is loaded
-        if (typeof THREE === 'undefined') {
-            console.error('Three.js not loaded! Please check the script tag in your HTML.');
-        }
+        // Cursor Trail
+        const cursorTrail = document.createElement('div');
+        cursorTrail.className = 'cursor-trail';
+        document.body.appendChild(cursorTrail);
 
-        // Parallax e Animazione delle Particelle
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorTrail.style.left = `${mouseX}px`;
+            cursorTrail.style.top = `${mouseY}px`;
+            cursorTrail.style.opacity = 1;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorTrail.style.opacity = 0;
+        });
+
+        // Particle System
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('particle-canvas') });
@@ -624,6 +765,41 @@
             camera.aspect = newWidth / newHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(newWidth, newHeight);
+        });
+
+        // Button Ripple Effect
+        document.querySelectorAll('.ripple-effect').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect', 'animate');
+                this.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Scroll Animations (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                } else {
+                    entry.target.style.animationPlayState = 'paused';
+                }
+            });
+        }, {
+            threshold: 0.1,
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.animationName = 'fadeIn';
+            section.style.animationDuration = '1s';
+            section.style.animationTimingFunction = 'ease-out';
+            section.style.animationDelay = '0.2s';
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
         });
     </script>
 </body>
