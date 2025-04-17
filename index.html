@@ -7,125 +7,142 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Saira+Stencil+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
     <style>
+        :root {
+            --primary: #DA3DF5;
+            --secondary: #00FFF7;
+            --accent: #9400FF;
+            --dark: #0D0D0D;
+            --light: #FFFFFF;
+            --gray: #AAAAAA;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Base Styles */
         body, html {
             height: 100%;
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--light);
+            background-color: var(--dark);
+            transition: background-color 0.5s ease;
         }
-        #particle-canvas {
+
+        /* Scroll Indicator */
+        .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
             width: 100%;
-            height: 100%;
-            z-index: -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            z-index: 100;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 247, 0.2);
         }
 
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: #FFFFFF;
-            background-color: #0D0D0D;
-        }
-        section {
-            padding: 100px 20px;
-            margin: 20px auto;
-            max-width: 1200px;
-            background-color: rgba(13, 13, 13, 0.85);
-            border-radius: 15px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        section:hover {
-            transform: translateY(-5px);
-            background-color: rgba(13, 13, 13, 0.95);
-        }
-        h2 {
-            color: #DA3DF5;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-align: center;
+        .nav-logo {
             font-family: 'Saira Stencil One', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 10px #DA3DF5;
-            animation: pulse 2s infinite alternate;
-        }
-        @keyframes pulse {
-            from { text-shadow: 0 0 12px rgba(218, 61, 245, 0.9); }
-            to { text-shadow: 0 0 24px rgba(218, 61, 245, 0.6); }
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            text-align: justify;
-            color: #AAAAAA;
-            font-family: 'Orbitron', sans-serif;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            color: #FFFFFF;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        li i {
-            margin-right: 15px;
-            color: #00FFF7;
-        }
-        a {
-            color: #DA3DF5;
+            font-size: 1.8rem;
+            color: var(--primary);
             text-decoration: none;
-            transition: color 0.3s ease, font-weight 0.3s ease;
-        }
-        a:hover {
-            color: #9400FF;
-            font-weight: 600;
+            text-shadow: 0 0 10px var(--primary);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1E1E1E;
-            border-radius: 15px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #DA3DF5, #9400FF);
-            border-radius: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #E68ADF, #A737FF);
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
-        /* Header Styles */
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--secondary);
+            transform: rotate(30deg);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header */
         header {
             text-align: center;
-            padding: 150px 20px;
-            background-color: rgba(13, 13, 13, 0.9);
-            border-bottom: 1px solid #00FFF7;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 200px 20px 150px;
             position: relative;
             z-index: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(148, 0, 255, 0.2) 100%);
         }
+
         header h1 {
             font-size: 4rem;
-            color: #DA3DF5;
+            color: var(--primary);
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 700;
             letter-spacing: 0.1em;
@@ -133,18 +150,72 @@
             text-shadow: 0 0 15px rgba(218, 61, 245, 0.8);
             animation: fadeIn 2s ease, pulse 2s infinite alternate;
         }
+
         header p {
             font-size: 1.5rem;
-            color: #FFFFFF;
+            color: var(--light);
             font-family: 'Orbitron', sans-serif;
             font-weight: 600;
             text-shadow: 0 0 8px rgba(0, 255, 247, 0.6);
             opacity: 0;
             animation: fadeIn 2s ease 1s forwards;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .header-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            background-color: rgba(13, 13, 13, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(218, 61, 245, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        section:hover::before {
+            opacity: 1;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Saira Stencil One', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 10px var(--primary);
+            animation: pulse 2s infinite alternate;
         }
 
         /* About Section */
@@ -155,25 +226,47 @@
             text-align: center;
             padding-top: 120px;
         }
+
+        .profile-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin-bottom: 2rem;
+        }
+
         #about img {
-            max-width: 350px;
-            height: auto;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            margin-bottom: 30px;
-            border: 5px solid #9400FF;
-            box-shadow: 0 0 20px rgba(148, 0, 255, 0.7);
-            transition: transform 0.3s ease;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 30px rgba(148, 0, 255, 0.7);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
         }
+
+        .profile-border {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: 1;
+            animation: rotateBorder 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         #about img:hover {
-            transform: scale(1.05);
-        }
-        #about h2{
-            text-align: center;
-        }
-        #about {
-            background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #DA3DF5;
-            box-shadow: 0 0 20px rgba(218, 61, 245, 0.5);
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 40px rgba(148, 0, 255, 0.9);
         }
 
         /* Services Section */
@@ -183,313 +276,426 @@
             gap: 30px;
             margin-top: 50px;
         }
-        .service-list div {
+
+        .service-card {
             padding: 30px;
-            border: 1px solid #00FFF7;
             border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            background-color: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-        .service-list div:hover {
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 247, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .service-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 12px 24px rgba(0, 255, 247, 0.6);
-            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary);
         }
-        .service-list h3 {
-            color: #DA3DF5;
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
             margin-bottom: 15px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-family: 'Saira Stencil One', sans-serif;
             font-weight: 600;
             letter-spacing: 0.03em;
+            transition: var(--transition);
         }
-        .service-list p {
-            font-size: 1.2rem;
-            color: #AAAAAA;
-            line-height: 1.8;
-            font-family: 'Orbitron', sans-serif;
-        }
-        #services {
-            background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #00FFF7;
-            box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+
+        .service-card:hover h3 {
+            color: var(--secondary);
         }
 
         /* Portfolio Section */
-        #portfolio {
-            padding-top: 120px;
-        }
-        .project {
-            margin-bottom: 50px;
-            padding: 30px;
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border: 2px solid #9400FF;
-        }
-        .project:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 12px 24px rgba(148, 0, 255, 0.9);
-            background-color: rgba(148, 0, 255, 0.1);
-        }
-        .project h3 {
-            color: #DA3DF5;
-            margin-bottom: 20px;
-            font-size: 2rem;
-            font-family: 'Saira Stencil One', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-shadow: 0 0 10px rgba(218, 61, 245, 0.8);
-        }
-        .project p {
-            font-size: 1.2rem;
-            color: #AAAAAA;
-            line-height: 1.8;
-            font-family: 'Orbitron', sans-serif;
-        }
-        .project a {
-            display: inline-block;
-            background-color: #DA3DF5;
-            color: #0D0D0D;
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin-top: 1rem;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        .project a:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-            background-color: #9400FF;
-            color: #FFFFFF;
-            text-shadow: 0 0 15px rgba(148, 0, 255, 0.8);
-        }
-        #portfolio {
-            background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #9400FF;
-            box-shadow: 0 0 20px rgba(148, 0, 255, 0.5);
-        }
-        #portfolio h2{
-            text-shadow: 0 0 15px rgba(218, 61, 245, 0.8);
-        }
-
-        /* Skills Section */
-        #skills {
-            background-color: rgba(13, 13, 13, 0.85);
-            padding-top: 120px;
-        }
-        #skills h2 {
-            color: #DA3DF5;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-align: center;
-            font-family: 'Saira Stencil One', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 12px rgba(218, 61, 245, 0.9);
-            animation: pulse 2s infinite alternate;
-        }
-        #skills ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-        #skills li {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 15px 30px;
-            border-radius: 10px;
-            border: 1px solid #00FFF7;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
-            font-size: 1.3rem;
-            color: #FFFFFF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: 'Rajdhani', sans-serif;
+
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--accent);
+            position: relative;
         }
-        #skills li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-7px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            text-shadow: 0 0 10px #9400FF;
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
         }
-        #skills li i{
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(13, 13, 13, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            background: linear-gradient(to top, rgba(13, 13, 13, 0.95), transparent);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            font-family: 'Saira Stencil One', sans-serif;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            font-family: 'Orbitron', sans-serif;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.8rem 1.2rem;
+            background-color: var(--glass);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateX(10px);
+            background-color: rgba(0, 255, 247, 0.1);
+        }
+
+        .skill-icon {
             font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--secondary);
+            width: 30px;
+            text-align: center;
         }
-        #skills {
-            background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #00FFF7;
-            box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+
+        .skill-name {
+            flex: 1;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+
+        .skill-level {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 1s ease;
+            width: 0;
         }
 
         /* Contact Section */
-        #contact {
-            background-color: rgba(13, 13, 13, 0.85);
-            padding-top: 120px;
-            text-align: center;
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            border: 2px solid #FFDB58;
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
         }
-        #contact h2 {
-            color: #DA3DF5;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-align: center;
-            font-family: 'Saira Stencil One', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 12px rgba(218, 61, 245, 0.9);
-            animation: pulse 2s infinite alternate;
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        #contact p {
-            font-size: 1.3rem;
-            color: #AAAAAA;
-            margin-bottom: 25px;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--glass);
+            transition: var(--transition);
         }
-        #contact p a{
-            font-weight: 600;
-            font-family: 'Rajdhani', sans-serif;
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(0, 255, 247, 0.1);
         }
-        #contact {
-            background-color: rgba(13, 13, 13, 0.85);
-            border: 2px solid #FFDB58;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transition: transform 0.3s ease;
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
         }
-        #contact:hover{
-            transform: translateY(-10px);
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--gray);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
+            top: -0.8rem;
+            left: 0.8rem;
+            font-size: 0.8rem;
+            background-color: var(--dark);
+            padding: 0 0.5rem;
+            color: var(--secondary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid #00FFF7;
+            padding: 3rem 20px;
             margin-top: 80px;
-            background-color: #0D0D0D;
-            color: #FFFFFF;
-            font-size: 1.2rem;
-            font-family: 'Poppins', sans-serif;
+            background-color: rgba(13, 13, 13, 0.9);
+            color: var(--light);
+            position: relative;
         }
 
-        /* Responsive Media Queries */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
-            }
-            header p {
-                font-size: 1.2rem;
-            }
-            .service-list {
-                grid-template-columns: 1fr;
-            }
-            #about img {
-                max-width: 90%;
-            }
-            h2{
-                font-size: 2.5rem;
-            }
-            p{
-                font-size: 1rem;
-            }
-            li{
-                font-size: 1rem;
-            }
-            .project a{
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            header p {
-                font-size: 1rem;
-            }
-            section {
-                padding: 60px 15px;
-            }
-            .project {
-                padding: 20px;
-            }
-            #skills ul {
-                gap: 20px;
-            }
-            #skills li {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            footer{
-                font-size: 0.9rem;
-            }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        /* Specific styling for links and interactive elements */
-        a {
-            color: #DA3DF5;
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--glass);
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .back-to-top {
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             text-decoration: none;
-            transition: color 0.3s ease, font-weight 0.3s ease, text-shadow 0.3s ease;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(218, 61, 245, 0.4);
         }
 
-        a:hover {
-            color: #9400FF;
-            font-weight: 600;
-            text-shadow: 0 0 10px #9400FF;
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
         }
 
-        .project a {
-            display: inline-block;
-            background-color: #DA3DF5;
-            color: #0D0D0D;
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(218, 61, 245, 0.7); }
+            50% { text-shadow: 0 0 20px rgba(218, 61, 245, 0.9); }
+            100% { text-shadow: 0 0 10px rgba(218, 61, 245, 0.7); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 1rem 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-            text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 1.3rem;
-            margin-top: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
             font-family: 'Rajdhani', sans-serif;
         }
 
-        .project a:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-            background-color: #9400FF;
-            color: #FFFFFF;
-            text-shadow: 0 0 15px rgba(148, 0, 255, 0.8);
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(218, 61, 245, 0.4);
         }
 
-        #skills li {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 15px 30px;
-            border-radius: 10px;
-            border: 1px solid #00FFF7;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
-            font-size: 1.3rem;
-            color: #FFFFFF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: 'Rajdhani', sans-serif;
+        .btn-primary:hover {
+            background-color: var(--accent);
+            color: var(--light);
+            box-shadow: 0 6px 20px rgba(148, 0, 255, 0.6);
+            transform: translateY(-3px);
         }
 
-        #skills li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-7px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            text-shadow: 0 0 10px #9400FF;
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0, 255, 247, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 6px 20px rgba(0, 255, 247, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* Particle Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
         /* Cursor Trail */
@@ -504,332 +710,946 @@
             pointer-events: none;
             z-index: 1000;
             transform: translate(-50%, -50%);
-            transition: transform 0.1s ease, opacity 0.3s ease;
+            transition: transform 0.1s ease, opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
             opacity: 0;
+            mix-blend-mode: screen;
         }
 
-        /* Button Hover Ripple */
-        .ripple-effect {
+        /* Tooltip */
+        .tooltip {
             position: relative;
-            overflow: hidden;
+            display: inline-block;
         }
-        .ripple-effect:after {
-            content: "";
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
             position: absolute;
-            top: 50%;
+            z-index: 1;
+            bottom: 125%;
             left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(0, 255, 247, 0.5);
-            border-radius: 100%;
-            transform: scale(0);
+            transform: translateX(-50%);
             opacity: 0;
-            pointer-events: none;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            border: 1px solid var(--secondary);
         }
-        .ripple-effect.animate:after {
-            animation: ripple 0.6s linear;
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
-        @keyframes ripple {
-            to {
-                transform: scale(100);
-                opacity: 0;
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--secondary);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--glass);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .testimonial-slide {
+            background-color: var(--glass);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .testimonial-slide:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--secondary);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .author-title {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        body.light-theme section {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme section:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        body.light-theme p,
+        body.light-theme .form-control,
+        body.light-theme .form-label {
+            color: #555;
+        }
+
+        body.light-theme .service-card,
+        body.light-theme .skill-item,
+        body.light-theme .contact-item,
+        body.light-theme .timeline-content,
+        body.light-theme .testimonial-slide {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .nav-link {
+            color: #333;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
             }
         }
 
-        /* Glassmorphism Styles */
-        .glass-box {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .glass-box:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: rgba(13, 13, 13, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                right: 1rem;
+                bottom: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
 
-        .glowing-border {
-            border: 2px solid;
-            border-color: rgba(0, 255, 247, 0.3);
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.5);
-            border-radius: 1rem;
-        }
-        .glowing-border:hover {
-            border-color: rgba(0, 255, 247, 0.7);
-            box-shadow: 0 0 25px rgba(0, 255, 247, 0.8);
-        }
-        .neon-button {
-            background: transparent;
-            border: 2px solid #00FFF7;
-            color: #00FFF7;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            box-shadow: 0 0 12px #00FFF7;
-            transition: all 0.3s ease;
-        }
-        .neon-button:hover {
-            background: #00FFF7;
-            color: #0D0D0D;
-            box-shadow: 0 0 24px #00FFF7, 0 0 48px #00FFF7;
-        }
-        .icon-glow i {
-            transition: text-shadow 0.3s ease;
-        }
-        .icon-glow:hover i {
-            text-shadow: 0 0 10px #00FFF7;
-        }
-        /* Keyframe for pulsing glow */
-        @keyframes pulse-glow {
-            0% { text-shadow: 0 0 5px rgba(0, 255, 247, 0.5); }
-            50% { text-shadow: 0 0 15px rgba(0, 255, 247, 0.8); }
-            100% { text-shadow: 0 0 5px rgba(0, 255, 247, 0.5); }
-        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
 
-        .pulsing-glow {
-            animation: pulse-glow 2s infinite;
-        }
+            header p {
+                font-size: 1rem;
+            }
 
-        /* Tilt effect on elements */
-        .tilt {
-            transition: transform 0.5s ease;
-        }
+            section {
+                padding: 60px 15px;
+            }
 
-        .tilt:hover {
-            transform: perspective(1000px) rotateX(-10deg) rotateY(25deg) scale(1.1);
-        }
+            .project-card {
+                padding: 15px;
+            }
 
-        /* Expanding Card on Hover */
-        .expand-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+            .skill-item {
+                padding: 0.6rem 1rem;
+            }
 
-        .expand-card:hover {
-            transform: scale(1.04);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            footer {
+                padding: 2rem 15px;
+            }
         }
-        .project a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
     </style>
 </head>
 <body>
+    <div class="scroll-progress"></div>
     <canvas id="particle-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">Fadi Albitar</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" class="nav-link">Chi Sono</a>
+            <a href="#services" class="nav-link">Servizi</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#skills" class="nav-link">Competenze</a>
+            <a href="#experience" class="nav-link">Esperienza</a>
+            <a href="#contact" class="nav-link">Contatti</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Header -->
     <header>
         <h1>Fadi Albitar</h1>
-        <p>Benvenuti nel mio Neonverso Digitale</p>
+        <p>Benvenuti nel mio Neonverso Digitale - Dove creatività e tecnologia si fondono per creare esperienze uniche</p>
+        <div class="header-buttons">
+            <a href="#contact" class="btn btn-primary">Contattami</a>
+            <a href="#portfolio" class="btn btn-secondary">Vedi Portfolio</a>
+        </div>
     </header>
-    <section id="about" data-tilt data-tilt-max="20" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+
+    <!-- About Section -->
+    <section id="about">
         <h2>Chi Sono</h2>
-        <img src="/images/fdimg.png" alt="Fadi Albitar" class = "tilt expand-card">
-        <p>Sono un Freelancer di Digital Marketing e Sviluppo Web con la passione di aiutare le aziende a crescere online. Offro una gamma di servizi per soddisfare le tue esigenze digitali.</p>
+        <div class="profile-container">
+            <div class="profile-border"></div>
+            <img src="/images/fdimg.png" alt="Fadi Albitar">
+        </div>
+        <p>Ciao! Sono Fadi Albitar, un appassionato professionista digitale con competenze in Digital Marketing e Sviluppo Web. Con una mentalità creativa e un approccio analitico, mi piace trasformare idee complesse in soluzioni digitali eleganti ed efficaci.</p>
+        <p>La mia missione è aiutare le aziende a prosperare nel mondo digitale attraverso strategie mirate e soluzioni tecnologiche su misura. Credo nell'approccio olistico che combina design accattivante, tecnologia robusta e marketing strategico.</p>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
         <h2>Servizi</h2>
         <div class="service-list">
-            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
-                <h3 class="icon-glow"><i class="fas fa-signal pulsing-glow"></i> Social Media Marketing</h3>
-                <p>Aiuto le aziende a costruire una forte presenza sui social media attraverso la creazione di contenuti, la gestione della community e la pubblicità mirata.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-signal"></i>
+                </div>
+                <h3>Social Media Marketing</h3>
+                <p>Strategie personalizzate per aumentare la tua presenza online, coinvolgere il tuo pubblico e convertire i follower in clienti. Gestione completa dei profili social con contenuti creativi e campagne pubblicitarie mirate.</p>
             </div>
-            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
-                <h3 class="icon-glow"><i class="fas fa-code pulsing-glow"></i> Sviluppo Web</h3>
-                <p>Progetto e sviluppo siti web reattivi e facili da usare che mettono in mostra il tuo marchio e guidano i risultati.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Sviluppo Web</h3>
+                <p>Siti web su misura, veloci e responsive che rappresentano al meglio il tuo brand e offrono un'esperienza utente eccezionale. Dalle landing page ai portali complessi, creo soluzioni che funzionano su ogni dispositivo.</p>
             </div>
-            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
-                <h3 class="icon-glow"><i class="fas fa-search pulsing-glow"></i> Ottimizzazione per i Motori di Ricerca (SEO)</h3>
-                <p>Ottimizzo i siti web per posizionarli più in alto nei risultati dei motori di ricerca, aumentando la visibilità e il traffico organico.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Ottimizzazione SEO</h3>
+                <p>Strategie SEO avanzate per migliorare il posizionamento del tuo sito nei motori di ricerca. Analisi delle parole chiave, ottimizzazione tecnica e creazione di contenuti per aumentare il traffico organico e le conversioni.</p>
             </div>
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
-            <h3>Progetto 1</h3>
-            <p>Un semplice gioco di scacchi che ho sviluppato.</p>
-            <a href="https://simplechessfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                <i class="fas fa-chess-rook"></i> Gioca a Scacchi
-            </a>
-        </div>
-        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
-            <h3>Progetto 2</h3>
-            <p>Una semplice applicazione di lista di cose da fare che ho sviluppato.</p>
-            <a href="https://todolistfd.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                <i class="fas fa-list-check"></i> Visualizza la ToDo List
-            </a>
-        </div>
-        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
-            <h3>Progetto 3</h3>
-            <p>Un sito web che mostra la storia del Jazz.</p>
-            <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                <i class="fas fa-music"></i> Visualizza la Storia del Jazz
-            </a>
-        </div>
-        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
-            <h3>Progetto 4</h3>
-            <p>Un sito web di un negozio di caffè.</p>
-            <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                <i class="fas fa-coffee"></i> Visualizza il Coffee Shop
-            </a>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chess Game">
+                    <div class="project-overlay">
+                        <h3>Gioco di Scacchi</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un'applicazione di scacchi interattiva sviluppata con JavaScript puro, con funzionalità di gioco multiplayer e AI di base.</p>
+                    <div class="project-links">
+                        <a href="https://simplechessfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ToDo List">
+                    <div class="project-overlay">
+                        <h3>ToDo List App</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un'applicazione per la gestione delle attività con funzionalità avanzate come categorizzazione, priorità e sincronizzazione cloud.</p>
+                    <div class="project-links">
+                        <a href="https://todolistfd.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jazz History">
+                    <div class="project-overlay">
+                        <h3>Storia del Jazz</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un sito educativo che esplora la ricca storia del jazz, con timeline interattive, gallerie multimediali e profili degli artisti.</p>
+                    <div class="project-links">
+                        <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coffee Shop">
+                    <div class="project-overlay">
+                        <h3>Coffee Shop</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un sito e-commerce completo per una caffetteria artigianale, con menu online, prenotazioni e sistema di ordini.</p>
+                    <div class="project-links">
+                        <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="skills" class="glowing-border tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
+    <!-- Skills Section -->
+    <section id="skills">
         <h2>Competenze</h2>
-        <ul>
-            <li class="icon-glow"><i class="fab fa-html5"></i> HTML5</li>
-            <li class="icon-glow"><i class="fab fa-css3-alt"></i> CSS3</li>
-            <li class="icon-glow"><i class="fab fa-js"></i> JavaScript</li>
-            <li class="icon-glow"><i class="fab fa-react"></i> React.js</li>
-            <li class="icon-glow"><i class="fas fa-search"></i> SEO</li>
-            <li class="icon-glow"><i class="fas fa-users"></i> Gestione dei Social Media</li>
-        </ul>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Sviluppo Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <div class="skill-name">HTML5</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                    <div class="skill-name">CSS3/Sass</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <div class="skill-name">React.js</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Digital Marketing</h3>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+                    <div class="skill-name">SEO</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-hashtag"></i></div>
+                    <div class="skill-name">Social Media</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-name">Analytics</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 82%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-ad"></i></div>
+                    <div class="skill-name">Advertising</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 78%"></div></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="glowing-border tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Esperienza</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022 - Presente</div>
+                    <h3 class="timeline-title">Freelance Digital Specialist</h3>
+                    <p>Sviluppo di soluzioni web complete e gestione di campagne di marketing digitale per clienti internazionali.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <h3 class="timeline-title">Web Developer Junior</h3>
+                    <p>Sviluppo frontend e ottimizzazione SEO per siti aziendali in un'agenzia digitale.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2018 - 2020</div>
+                    <h3 class="timeline-title">Social Media Manager</h3>
+                    <p>Gestione di profili social e creazione di contenuti per brand nel settore fashion e lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonianze</h2>
+        <div class="testimonials">
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "Fadi ha trasformato completamente la nostra presenza online. Il sito che ha creato non solo è bellissimo, ma ha anche aumentato le nostre conversioni del 40% in soli tre mesi."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Maria Rossi</div>
+                        <div class="author-title">CEO, FashionBrand</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "Le nostre campagne social gestite da Fadi hanno raggiunto un engagement senza precedenti. Professionalità e creatività eccezionali!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Luca Bianchi</div>
+                        <div class="author-title">Marketing Director, TechStartup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
         <h2>Contatti</h2>
-        <p>Email: <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a></p>
-        <p>Telefono: <a href="tel:+393716580667">+39 371 658 0667</a></p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <h3>Telefono</h3>
+                        <a href="tel:+393716580667">+39 371 658 0667</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h3>Località</h3>
+                        <p>Milano, Italia</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder=" " required>
+                    <label for="name" class="form-label">Nome</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder=" " required>
+                    <label for="email" class="form-label">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject" placeholder=" ">
+                    <label for="subject" class="form-label">Oggetto</label>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder=" " required></textarea>
+                    <label for="message" class="form-label">Messaggio</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+            </form>
+        </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link tooltip"><i class="fab fa-linkedin-in"></i><span class="tooltiptext">LinkedIn</span></a>
+                <a href="#" class="social-link tooltip"><i class="fab fa-github"></i><span class="tooltiptext">GitHub</span></a>
+                <a href="#" class="social-link tooltip"><i class="fab fa-instagram"></i><span class="tooltiptext">Instagram</span></a>
+                <a href="#" class="social-link tooltip"><i class="fab fa-twitter"></i><span class="tooltiptext">Twitter</span></a>
+            </div>
+            <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+        </div>
     </footer>
 
     <script>
-        // Cursor Trail
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('light-theme')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Save theme preference
+        themeToggle.addEventListener('click', () => {
+            const theme = body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+        });
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollProgress + '%';
+        });
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate skill progress bars on scroll
+        const skillProgress = document.querySelectorAll('.skill-progress');
+        const skillsSection = document.getElementById('skills');
+
+        function animateSkills() {
+            skillProgress.forEach(progress => {
+                if (isElementInViewport(progress)) {
+                    progress.style.width = progress.style.width;
+                }
+            });
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        window.addEventListener('scroll', animateSkills);
+        animateSkills(); // Run once on page load
+
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                alert('Per favore compila tutti i campi obbligatori.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Per favore inserisci un indirizzo email valido.');
+                return;
+            }
+            
+            // If validation passes
+            alert('Grazie per il tuo messaggio! Ti risponderò al più presto.');
+            contactForm.reset();
+        });
+
+        // Cursor Trail Effect
         const cursorTrail = document.createElement('div');
         cursorTrail.className = 'cursor-trail';
         document.body.appendChild(cursorTrail);
 
         let mouseX = 0;
         let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+        let isMouseMoving = false;
+        let mouseStopTimeout;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorTrail.style.left = `${mouseX}px`;
-            cursorTrail.style.top = `${mouseY}px`;
-            cursorTrail.style.opacity = 1;
+            
+            if (!isMouseMoving) {
+                cursorTrail.style.opacity = '1';
+                isMouseMoving = true;
+            }
+            
+            clearTimeout(mouseStopTimeout);
+            mouseStopTimeout = setTimeout(() => {
+                cursorTrail.style.opacity = '0';
+                isMouseMoving = false;
+            }, 500);
         });
 
-        document.addEventListener('mouseleave', () => {
-            cursorTrail.style.opacity = 0;
+        function animateCursorTrail() {
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            cursorTrail.style.left = `${trailX}px`;
+            cursorTrail.style.top = `${trailY}px`;
+            
+            requestAnimationFrame(animateCursorTrail);
+        }
+
+        animateCursorTrail();
+
+        // Change cursor size on click
+        document.addEventListener('mousedown', () => {
+            cursorTrail.style.width = '15px';
+            cursorTrail.style.height = '15px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursorTrail.style.width = '20px';
+            cursorTrail.style.height = '20px';
         });
 
         // Particle System
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('particle-canvas') });
+        const renderer = new THREE.WebGLRenderer({ 
+            canvas: document.getElementById('particle-canvas'),
+            alpha: true
+        });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor("#0D0D0D");
 
+        // Create particles
         const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 200;
-        const positions = new Float32Array(particlesCount * 3);
-        const colors = new Float32Array(particlesCount * 3);
-        const sizes = new Float32Array(particlesCount);
-
-        for (let i = 0; i < particlesCount; i++) {
-            const i3 = i * 3;
-            positions[i3] = (Math.random() - 0.5) * 2000;
-            positions[i3 + 1] = (Math.random() - 0.5) * 2000;
-            positions[i3 + 2] = (Math.random() - 0.5) * 2000;
-            const color = new THREE.Color();
-            color.setHSL(Math.random(), 1, 0.5);
-            colors[i3] = color.r;
-            colors[i3 + 1] = color.g;
-            colors[i3 + 2] = color.b;
-
-            sizes[i] = (Math.random() * 5) + 5;
+        const particlesCount = 500;
+        
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorArray = new Float32Array(particlesCount * 3);
+        const sizeArray = new Float32Array(particlesCount);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+            colorArray[i] = Math.random();
         }
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        particlesGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+        
+        for(let i = 0; i < particlesCount; i++) {
+            sizeArray[i] = Math.random() * 0.5 + 0.1;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+        particlesGeometry.setAttribute('size', new THREE.BufferAttribute(sizeArray, 1));
 
         const particlesMaterial = new THREE.PointsMaterial({
-            size: 8,
+            size: 0.1,
             vertexColors: true,
-            sizeAttenuation: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
         });
-        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particles);
 
-        camera.position.z = 500;
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
 
+        camera.position.z = 5;
+
+        // Mouse interaction
+        const mouse = new THREE.Vector2();
+        const target = new THREE.Vector2();
+        const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
+
+        document.addEventListener('mousemove', (e) => {
+            mouse.x = (e.clientX - windowHalf.x) / windowHalf.x;
+            mouse.y = (e.clientY - windowHalf.y) / windowHalf.y;
+        });
+
+        // Animation
         function animate() {
             requestAnimationFrame(animate);
-
-            particles.rotation.x += 0.005;
-            particles.rotation.y += 0.01;
-
-            const sizesArray = particlesGeometry.attributes.size.array;
-            for (let i = 0; i < particlesCount; i++) {
-                sizesArray[i] += (Math.random() - 0.5) * 0.1;
-                if (sizesArray[i] < 5) sizesArray[i] = 5;
-                if (sizesArray[i] > 10) sizesArray[i] = 10;
-            }
-            particlesGeometry.attributes.size.needsUpdate = true;
-
+            
+            target.x = mouse.x * 0.5;
+            target.y = mouse.y * 0.5;
+            
+            camera.position.x += (target.x - camera.position.x) * 0.05;
+            camera.position.y += (-target.y - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            
+            particlesMesh.rotation.x += 0.001;
+            particlesMesh.rotation.y += 0.002;
+            
             renderer.render(scene, camera);
         }
 
         animate();
 
+        // Handle window resize
         window.addEventListener('resize', () => {
-            const newWidth = window.innerWidth;
-            const newHeight = window.innerHeight;
-            camera.aspect = newWidth / newHeight;
+            camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(newWidth, newHeight);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            windowHalf.set(window.innerWidth / 2, window.innerHeight / 2);
         });
 
-        // Button Ripple Effect
-        document.querySelectorAll('.ripple-effect').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple-effect', 'animate');
-                this.appendChild(ripple);
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // Scroll Animations (Intersection Observer)
+        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate');
                     observer.unobserve(entry.target);
-                } else {
-                    entry.target.style.animationPlayState = 'paused';
                 }
             });
         }, {
-            threshold: 0.1,
+            threshold: 0.1
         });
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.animationName = 'fadeIn';
-            section.style.animationDuration = '1s';
-            section.style.animationTimingFunction = 'ease-out';
-            section.style.animationDelay = '0.2s';
-            section.style.animationPlayState = 'paused';
-            observer.observe(section);
+        document.querySelectorAll('section, .service-card, .project-card, .skill-item').forEach(element => {
+            observer.observe(element);
         });
 
-        // Initialize VanillaTilt for elements with the 'data-tilt' attribute
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+        // Initialize tooltips
+        document.querySelectorAll('.tooltip').forEach(tooltip => {
+            tooltip.addEventListener('mouseenter', function() {
+                const tooltipText = this.querySelector('.tooltiptext');
+                tooltipText.style.opacity = '1';
+                tooltipText.style.visibility = 'visible';
+            });
+            
+            tooltip.addEventListener('mouseleave', function() {
+                const tooltipText = this.querySelector('.tooltiptext');
+                tooltipText.style.opacity = '0';
+                tooltipText.style.visibility = 'hidden';
+            });
+        });
     </script>
 </body>
 </html>
