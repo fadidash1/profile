@@ -22,7 +22,6 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Base Styles */
         body, html {
             height: 100%;
             margin: 0;
@@ -35,7 +34,6 @@
             transition: background-color 0.5s ease;
         }
 
-        /* Scroll Indicator */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -47,7 +45,6 @@
             transition: width 0.1s ease;
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -68,6 +65,11 @@
             color: var(--primary);
             text-decoration: none;
             text-shadow: 0 0 10px var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -104,6 +106,14 @@
             width: 100%;
         }
 
+        .nav-link.active {
+            color: var(--secondary);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
         .theme-toggle {
             background: none;
             border: none;
@@ -111,6 +121,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition);
+            margin-left: 1rem;
         }
 
         .theme-toggle:hover {
@@ -125,9 +136,13 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        /* Header */
+        .hamburger:hover {
+            color: var(--secondary);
+        }
+
         header {
             text-align: center;
             padding: 200px 20px 150px;
@@ -171,7 +186,6 @@
             animation: fadeIn 1s ease 1.5s forwards;
         }
 
-        /* Sections */
         section {
             padding: 100px 20px;
             margin: 20px auto;
@@ -218,7 +232,6 @@
             animation: pulse 2s infinite alternate;
         }
 
-        /* About Section */
         #about {
             display: flex;
             flex-direction: column;
@@ -269,7 +282,6 @@
             box-shadow: 0 0 40px rgba(148, 0, 255, 0.9);
         }
 
-        /* Services Section */
         .service-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -338,7 +350,6 @@
             color: var(--secondary);
         }
 
-        /* Portfolio Section */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -408,7 +419,6 @@
             margin-top: 1.5rem;
         }
 
-        /* Skills Section */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -476,7 +486,6 @@
             width: 0;
         }
 
-        /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -561,7 +570,6 @@
             resize: vertical;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 20px;
@@ -625,7 +633,6 @@
             transform: translateY(-5px);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -643,7 +650,6 @@
             100% { transform: translateY(0); }
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -688,7 +694,6 @@
             transform: translateY(-3px);
         }
 
-        /* Particle Canvas */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -698,7 +703,6 @@
             z-index: -1;
         }
 
-        /* Cursor Trail */
         .cursor-trail {
             position: fixed;
             top: 0;
@@ -715,7 +719,6 @@
             mix-blend-mode: screen;
         }
 
-        /* Tooltip */
         .tooltip {
             position: relative;
             display: inline-block;
@@ -745,7 +748,6 @@
             opacity: 1;
         }
 
-        /* Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -824,7 +826,6 @@
             color: var(--primary);
         }
 
-        /* Testimonials */
         .testimonials {
             max-width: 800px;
             margin: 3rem auto;
@@ -878,7 +879,6 @@
             color: var(--gray);
         }
 
-        /* Light Theme */
         body.light-theme {
             background-color: #f5f5f5;
             color: #333;
@@ -912,7 +912,6 @@
             color: #333;
         }
 
-        /* Responsive Styles */
         @media (max-width: 992px) {
             .timeline::after {
                 left: 31px;
@@ -1036,7 +1035,6 @@
     <div class="scroll-progress"></div>
     <canvas id="particle-canvas"></canvas>
     
-    <!-- Navigation -->
     <nav class="navbar">
         <a href="#" class="nav-logo">Fadi Albitar</a>
         <div class="nav-links" id="navLinks">
@@ -1055,7 +1053,6 @@
         </button>
     </nav>
 
-    <!-- Header -->
     <header>
         <h1>Fadi Albitar</h1>
         <p>Benvenuti nel mio Neonverso Digitale - Dove creatività e tecnologia si fondono per creare esperienze uniche</p>
@@ -1065,7 +1062,6 @@
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about">
         <h2>Chi Sono</h2>
         <div class="profile-container">
@@ -1074,9 +1070,9 @@
         </div>
         <p>Ciao! Sono Fadi Albitar, un appassionato professionista digitale con competenze in Digital Marketing e Sviluppo Web. Con una mentalità creativa e un approccio analitico, mi piace trasformare idee complesse in soluzioni digitali eleganti ed efficaci.</p>
         <p>La mia missione è aiutare le aziende a prosperare nel mondo digitale attraverso strategie mirate e soluzioni tecnologiche su misura. Credo nell'approccio olistico che combina design accattivante, tecnologia robusta e marketing strategico.</p>
+        <a href="#services" class="btn btn-primary">Scopri i miei servizi</a>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <h2>Servizi</h2>
         <div class="service-list">
@@ -1086,6 +1082,7 @@
                 </div>
                 <h3>Social Media Marketing</h3>
                 <p>Strategie personalizzate per aumentare la tua presenza online, coinvolgere il tuo pubblico e convertire i follower in clienti. Gestione completa dei profili social con contenuti creativi e campagne pubblicitarie mirate.</p>
+                <a href="#contact" class="btn btn-secondary">Richiedi informazioni</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">
@@ -1093,6 +1090,7 @@
                 </div>
                 <h3>Sviluppo Web</h3>
                 <p>Siti web su misura, veloci e responsive che rappresentano al meglio il tuo brand e offrono un'esperienza utente eccezionale. Dalle landing page ai portali complessi, creo soluzioni che funzionano su ogni dispositivo.</p>
+                <a href="#contact" class="btn btn-secondary">Parla con me</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">
@@ -1100,11 +1098,11 @@
                 </div>
                 <h3>Ottimizzazione SEO</h3>
                 <p>Strategie SEO avanzate per migliorare il posizionamento del tuo sito nei motori di ricerca. Analisi delle parole chiave, ottimizzazione tecnica e creazione di contenuti per aumentare il traffico organico e le conversioni.</p>
+                <a href="#contact" class="btn btn-secondary">Ottimizza ora</a>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio">
         <h2>Portfolio</h2>
         <div class="portfolio-grid">
@@ -1119,7 +1117,7 @@
                     <p>Un'applicazione di scacchi interattiva sviluppata con JavaScript puro, con funzionalità di gioco multiplayer e AI di base.</p>
                     <div class="project-links">
                         <a href="https://simplechessfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
                     </div>
                 </div>
             </div>
@@ -1134,7 +1132,7 @@
                     <p>Un'applicazione per la gestione delle attività con funzionalità avanzate come categorizzazione, priorità e sincronizzazione cloud.</p>
                     <div class="project-links">
                         <a href="https://todolistfd.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
                     </div>
                 </div>
             </div>
@@ -1149,7 +1147,7 @@
                     <p>Un sito educativo che esplora la ricca storia del jazz, con timeline interattive, gallerie multimediali e profili degli artisti.</p>
                     <div class="project-links">
                         <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
                     </div>
                 </div>
             </div>
@@ -1164,14 +1162,16 @@
                     <p>Un sito e-commerce completo per una caffetteria artigianale, con menu online, prenotazioni e sistema di ordini.</p>
                     <div class="project-links">
                         <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                        <a href="#" class="btn btn-secondary">Dettagli</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
                     </div>
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#contact" class="btn btn-primary">Vuoi un progetto personalizzato?</a>
+        </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <h2>Competenze</h2>
         <div class="skills-container">
@@ -1222,37 +1222,41 @@
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#experience" class="btn btn-secondary">Vedi la mia esperienza</a>
+        </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience">
         <h2>Esperienza</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <div class="timeline-date">2022 - Presente</div>
+                    <div class="timeline-date">2023 - Presente</div>
                     <h3 class="timeline-title">Freelance Digital Specialist</h3>
                     <p>Sviluppo di soluzioni web complete e gestione di campagne di marketing digitale per clienti internazionali.</p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-date">2022 - 2023</div>
                     <h3 class="timeline-title">Web Developer Junior</h3>
                     <p>Sviluppo frontend e ottimizzazione SEO per siti aziendali in un'agenzia digitale.</p>
                 </div>
             </div>
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <div class="timeline-date">2018 - 2020</div>
+                    <div class="timeline-date">2018 - 2022</div>
                     <h3 class="timeline-title">Social Media Manager</h3>
                     <p>Gestione di profili social e creazione di contenuti per brand nel settore fashion e lifestyle.</p>
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#testimonials" class="btn btn-primary">Leggi le testimonianze</a>
+        </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="testimonials">
         <h2>Testimonianze</h2>
         <div class="testimonials">
@@ -1281,9 +1285,11 @@
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#contact" class="btn btn-primary">Contattami per lavorare insieme</a>
+        </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Contatti</h2>
         <div class="contact-container">
@@ -1306,48 +1312,45 @@
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div>
                         <h3>Località</h3>
-                        <p>Milano, Italia</p>
+                        <p>Piemonte, Italia</p>
                     </div>
                 </div>
+                
             </div>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="name" placeholder=" " required>
-                    <label for="name" class="form-label">Nome</label>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder=" " required>
-                    <label for="email" class="form-label">Email</label>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="subject" placeholder=" ">
-                    <label for="subject" class="form-label">Oggetto</label>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder=" " required></textarea>
-                    <label for="message" class="form-label">Messaggio</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Invia Messaggio</button>
-            </form>
+           
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="#" class="social-link tooltip"><i class="fab fa-linkedin-in"></i><span class="tooltiptext">LinkedIn</span></a>
-                <a href="#" class="social-link tooltip"><i class="fab fa-github"></i><span class="tooltiptext">GitHub</span></a>
-                <a href="#" class="social-link tooltip"><i class="fab fa-instagram"></i><span class="tooltiptext">Instagram</span></a>
-                <a href="#" class="social-link tooltip"><i class="fab fa-twitter"></i><span class="tooltiptext">Twitter</span></a>
+                <a href="https://www.facebook.com/profile.php?id=100093891904979" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="tooltiptext">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/fadi_z_albitar/" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-instagram"></i>
+                    <span class="tooltiptext">Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fadi-albitar/" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span class="tooltiptext">LinkedIn</span>
+                </a>
+                <a href="https://x.com/fadialbitarfd?t=3YANNJ3Q9Tu0kAIIarRa2g&s=09" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-twitter"></i>
+                    <span class="tooltiptext">Twitter</span>
+                </a>
+                <a href="https://github.com/fadidash1" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-github"></i>
+                    <span class="tooltiptext">GitHub</span>
+                </a>
             </div>
             <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
-            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+            <a href="#about" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
@@ -1357,7 +1360,6 @@
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1365,7 +1367,6 @@
             });
         });
 
-        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
@@ -1379,19 +1380,16 @@
             }
         });
 
-        // Check for saved theme preference
         if (localStorage.getItem('theme') === 'light') {
             body.classList.add('light-theme');
             themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
         }
 
-        // Save theme preference
         themeToggle.addEventListener('click', () => {
             const theme = body.classList.contains('light-theme') ? 'light' : 'dark';
             localStorage.setItem('theme', theme);
         });
 
-        // Scroll Progress Indicator
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1399,7 +1397,6 @@
             document.querySelector('.scroll-progress').style.width = scrollProgress + '%';
         });
 
-        // Back to Top Button
         const backToTop = document.querySelector('.back-to-top');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -1419,7 +1416,6 @@
             });
         });
 
-        // Animate skill progress bars on scroll
         const skillProgress = document.querySelectorAll('.skill-progress');
         const skillsSection = document.getElementById('skills');
 
@@ -1442,37 +1438,31 @@
         }
 
         window.addEventListener('scroll', animateSkills);
-        animateSkills(); // Run once on page load
+        animateSkills();
 
-        // Form Validation
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Simple validation
             if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
                 alert('Per favore compila tutti i campi obbligatori.');
                 return;
             }
             
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Per favore inserisci un indirizzo email valido.');
                 return;
             }
             
-            // If validation passes
             alert('Grazie per il tuo messaggio! Ti risponderò al più presto.');
             contactForm.reset();
         });
 
-        // Cursor Trail Effect
         const cursorTrail = document.createElement('div');
         cursorTrail.className = 'cursor-trail';
         document.body.appendChild(cursorTrail);
@@ -1512,7 +1502,6 @@
 
         animateCursorTrail();
 
-        // Change cursor size on click
         document.addEventListener('mousedown', () => {
             cursorTrail.style.width = '15px';
             cursorTrail.style.height = '15px';
@@ -1523,7 +1512,6 @@
             cursorTrail.style.height = '20px';
         });
 
-        // Particle System
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ 
@@ -1532,7 +1520,6 @@
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // Create particles
         const particlesGeometry = new THREE.BufferGeometry();
         const particlesCount = 500;
         
@@ -1566,7 +1553,6 @@
 
         camera.position.z = 5;
 
-        // Mouse interaction
         const mouse = new THREE.Vector2();
         const target = new THREE.Vector2();
         const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
@@ -1576,7 +1562,6 @@
             mouse.y = (e.clientY - windowHalf.y) / windowHalf.y;
         });
 
-        // Animation
         function animate() {
             requestAnimationFrame(animate);
             
@@ -1595,7 +1580,6 @@
 
         animate();
 
-        // Handle window resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
@@ -1603,7 +1587,6 @@
             windowHalf.set(window.innerWidth / 2, window.innerHeight / 2);
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1616,27 +1599,34 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    document.querySelector(`.nav-link[href="${targetId}"]`).classList.add('active');
                 }
             });
         });
 
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    observer.unobserve(entry.target);
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-        }, {
-            threshold: 0.1
         });
 
-        document.querySelectorAll('section, .service-card, .project-card, .skill-item').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Initialize tooltips
         document.querySelectorAll('.tooltip').forEach(tooltip => {
             tooltip.addEventListener('mouseenter', function() {
                 const tooltipText = this.querySelector('.tooltiptext');
