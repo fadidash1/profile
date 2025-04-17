@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Saira+Stencil+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
     <style>
         body, html {
             height: 100%;
@@ -405,7 +406,7 @@
             li{
                 font-size: 1rem;
             }
-             .project a{
+            .project a{
                 font-size: 1rem;
                 padding: 0.8rem 1.5rem;
             }
@@ -601,6 +602,23 @@
         .tilt:hover {
             transform: perspective(1000px) rotateX(-10deg) rotateY(25deg) scale(1.1);
         }
+
+        /* Expanding Card on Hover */
+        .expand-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expand-card:hover {
+            transform: scale(1.04);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .project a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -609,24 +627,24 @@
         <h1>Fadi Albitar</h1>
         <p>Benvenuti nel mio Neonverso Digitale</p>
     </header>
-    <section id="about">
+    <section id="about" data-tilt data-tilt-max="20" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
         <h2>Chi Sono</h2>
-        <img src="/images/fdimg.png" alt="Fadi Albitar" class = "tilt">
+        <img src="/images/fdimg.png" alt="Fadi Albitar" class = "tilt expand-card">
         <p>Sono un Freelancer di Digital Marketing e Sviluppo Web con la passione di aiutare le aziende a crescere online. Offro una gamma di servizi per soddisfare le tue esigenze digitali.</p>
     </section>
 
     <section id="services">
         <h2>Servizi</h2>
         <div class="service-list">
-            <div class="glass-box tilt">
+            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
                 <h3 class="icon-glow"><i class="fas fa-signal pulsing-glow"></i> Social Media Marketing</h3>
                 <p>Aiuto le aziende a costruire una forte presenza sui social media attraverso la creazione di contenuti, la gestione della community e la pubblicità mirata.</p>
             </div>
-            <div class="glass-box tilt">
+            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
                 <h3 class="icon-glow"><i class="fas fa-code pulsing-glow"></i> Sviluppo Web</h3>
                 <p>Progetto e sviluppo siti web reattivi e facili da usare che mettono in mostra il tuo marchio e guidano i risultati.</p>
             </div>
-            <div class="glass-box tilt">
+            <div class="glass-box tilt expand-card" data-tilt data-tilt-max="15" data-tilt-speed="300">
                 <h3 class="icon-glow"><i class="fas fa-search pulsing-glow"></i> Ottimizzazione per i Motori di Ricerca (SEO)</h3>
                 <p>Ottimizzo i siti web per posizionarli più in alto nei risultati dei motori di ricerca, aumentando la visibilità e il traffico organico.</p>
             </div>
@@ -635,37 +653,37 @@
 
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <div class="project tilt">
+        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
             <h3>Progetto 1</h3>
             <p>Un semplice gioco di scacchi che ho sviluppato.</p>
             <a href="https://simplechessfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                Gioca a Scacchi
+                <i class="fas fa-chess-rook"></i> Gioca a Scacchi
             </a>
         </div>
-        <div class="project tilt">
+        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
             <h3>Progetto 2</h3>
             <p>Una semplice applicazione di lista di cose da fare che ho sviluppato.</p>
             <a href="https://todolistfd.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                Visualizza la ToDo List
+                <i class="fas fa-list-check"></i> Visualizza la ToDo List
             </a>
         </div>
-        <div class="project tilt">
+        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
             <h3>Progetto 3</h3>
             <p>Un sito web che mostra la storia del Jazz.</p>
             <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                Visualizza la Storia del Jazz
+                <i class="fas fa-music"></i> Visualizza la Storia del Jazz
             </a>
         </div>
-        <div class="project tilt">
+        <div class="project tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
             <h3>Progetto 4</h3>
             <p>Un sito web di un negozio di caffè.</p>
             <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" rel="noopener noreferrer" class = "neon-button ripple-effect">
-                Visualizza il Coffee Shop
+                <i class="fas fa-coffee"></i> Visualizza il Coffee Shop
             </a>
         </div>
     </section>
 
-    <section id="skills" class="glowing-border tilt">
+    <section id="skills" class="glowing-border tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
         <h2>Competenze</h2>
         <ul>
             <li class="icon-glow"><i class="fab fa-html5"></i> HTML5</li>
@@ -677,7 +695,7 @@
         </ul>
     </section>
 
-    <section id="contact" class="glowing-border tilt">
+    <section id="contact" class="glowing-border tilt expand-card" data-tilt data-tilt-max="10" data-tilt-speed="200">
         <h2>Contatti</h2>
         <p>Email: <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a></p>
         <p>Telefono: <a href="tel:+393716580667">+39 371 658 0667</a></p>
@@ -809,6 +827,9 @@
             section.style.animationPlayState = 'paused';
             observer.observe(section);
         });
+
+        // Initialize VanillaTilt for elements with the 'data-tilt' attribute
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
     </script>
 </body>
 </html>
