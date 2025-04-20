@@ -1394,12 +1394,11 @@
                 </a>
             </div>
             <p>&copy; 2025 Fadi Albitar. Tutti i diritti riservati.</p>
-            <!-- Make sure this exists in your HTML (preferably near closing </body>) -->
+
 <a href="#" class="back-to-top">
     <i class="fas fa-arrow-up"></i>
   </a>
   
-  <!-- Optional progress bar (if you're using it) -->
   <div class="scroll-progress"></div>
         </div>
     </footer>
@@ -1445,20 +1444,17 @@
         });
 
         window.addEventListener('scroll', () => {
-    // Scroll progress bar calculation
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollProgress = (scrollTop / scrollHeight) * 100;
     document.querySelector('.scroll-progress').style.width = `${scrollProgress}%`;
     
-    // Back-to-top button visibility
     const backToTop = document.querySelector('.back-to-top');
     const shouldShow = window.pageYOffset > 300;
     backToTop.style.opacity = shouldShow ? '1' : '0';
     backToTop.style.visibility = shouldShow ? 'visible' : 'hidden';
 });
 
-// Back-to-top click handler
 document.querySelector('.back-to-top').addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
