@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadi Albitar - Digital Marketing & Web Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Saira+Stencil+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <canvas id="particle-canvas"></canvas>
+    
+    <nav class="navbar">
+        <a href="#" class="nav-logo">Fadi Albitar</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" class="nav-link">Chi Sono</a>
+            <a href="#services" class="nav-link">Servizi</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#skills" class="nav-link">Competenze</a>
+            <a href="#experience" class="nav-link">Esperienza</a>
+            <a href="#contact" class="nav-link">Contatti</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <header>
+        <h1>Fadi Albitar</h1>
+        <p>Benvenuti nel mio Neonverso Digitale - Dove creatività e tecnologia si fondono per creare esperienze uniche</p>
+        <div class="header-buttons">
+            <a href="#contact" class="btn btn-primary">Contattami</a>
+            <a href="#portfolio" class="btn btn-secondary">Vedi Portfolio</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Chi Sono</h2>
+        <div class="profile-container">
+            <div class="profile-border"></div>
+            <img src="/images/fdimg.png" alt="Fadi Albitar">
+        </div>
+        <p>Ciao! Sono Fadi Albitar, un appassionato professionista digitale con competenze in Digital Marketing e Sviluppo Web. Con una mentalità creativa e un approccio analitico, mi piace trasformare idee complesse in soluzioni digitali eleganti ed efficaci.</p>
+        <p>La mia missione è aiutare le aziende a prosperare nel mondo digitale attraverso strategie mirate e soluzioni tecnologiche su misura. Credo nell'approccio olistico che combina design accattivante, tecnologia robusta e marketing strategico.</p>
+        <a href="#services" class="btn btn-primary">Scopri i miei servizi</a>
+    </section>
+
+    <section id="services">
+        <h2>Servizi</h2>
+        <div class="service-list">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-signal"></i>
+                </div>
+                <h3>Social Media Marketing</h3>
+                <p>Strategie personalizzate per aumentare la tua presenza online, coinvolgere il tuo pubblico e convertire i follower in clienti. Gestione completa dei profili social con contenuti creativi e campagne pubblicitarie mirate.</p>
+                <a href="#contact" class="btn btn-secondary">Richiedi informazioni</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Sviluppo Web</h3>
+                <p>Siti web su misura, veloci e responsive che rappresentano al meglio il tuo brand e offrono un'esperienza utente eccezionale. Dalle landing page ai portali complessi, creo soluzioni che funzionano su ogni dispositivo.</p>
+                <a href="#contact" class="btn btn-secondary">Parla con me</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Ottimizzazione SEO</h3>
+                <p>Strategie SEO avanzate per migliorare il posizionamento del tuo sito nei motori di ricerca. Analisi delle parole chiave, ottimizzazione tecnica e creazione di contenuti per aumentare il traffico organico e le conversioni.</p>
+                <a href="#contact" class="btn btn-secondary">Ottimizza ora</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chess Game">
+                    <div class="project-overlay">
+                        <h3>Gioco di Scacchi</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un'applicazione di scacchi interattiva sviluppata con JavaScript puro, con funzionalità di gioco multiplayer e AI di base.</p>
+                    <div class="project-links">
+                        <a href="https://simplechessfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ToDo List">
+                    <div class="project-overlay">
+                        <h3>ToDo List App</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un'applicazione to-do list semplice ed essenziale. Crea, gestisci e completa le tue attività quotidiane con un'interfaccia intuitiva e minimalista.</p>
+                    <div class="project-links">
+                        <a href="https://todolistfd.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jazz History">
+                    <div class="project-overlay">
+                        <h3>Storia del Jazz</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un sito educativo che esplora la ricca storia del jazz, con timeline interattive, gallerie multimediali e profili degli artisti.</p>
+                    <div class="project-links">
+                        <a href="https://jazzhistorybyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Chatbot">
+                    <div class="project-overlay">
+                        <h3>AI Chatbot</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un chatbot avanzato basato su AI progettato per il marketing digitale, capace di interagire con i clienti, generare lead e migliorare l'engagement 24/7.</p><div class="project-links">
+                        <a href="https://fdchatbot.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="GlocalEyse Scambio Culturale">
+                    <div class="project-overlay">
+                        <h3>GlocalEyse</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Vivi le culture attraverso gli occhi dei locali, con traduzione in tempo reale e connessioni autentiche.</p>
+                    <div class="project-links">
+                        <a href="https://glocaleyse.netlify.app/" target="_blank" class="btn btn-primary">Demo Live</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un Progetto Simile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coffee Shop">
+                    <div class="project-overlay">
+                        <h3>Coffee Shop</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Un sito e-commerce completo per una caffetteria artigianale, con menu online, prenotazioni e sistema di ordini.</p>
+                    <div class="project-links">
+                        <a href="https://coffeeshopbyfadi.netlify.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un progetto simile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#contact" class="btn btn-primary">Vuoi un progetto personalizzato?</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Competenze</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Sviluppo Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <div class="skill-name">HTML5</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                    <div class="skill-name">CSS3/Sass</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <div class="skill-name">React.js</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Sviluppo Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <div class="skill-name">Java</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="skill-name">Spring Boot</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 82%"></div></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Digital Marketing</h3>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+                    <div class="skill-name">SEO</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-hashtag"></i></div>
+                    <div class="skill-name">Social Media</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-name">Analytics</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 82%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-ad"></i></div>
+                    <div class="skill-name">Advertising</div>
+                    <div class="skill-level"><div class="skill-progress" style="width: 78%"></div></div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#experience" class="btn btn-secondary">Vedi la mia esperienza</a>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Esperienza</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2023 - Presente</div>
+                    <h3 class="timeline-title">Freelance Digital Specialist</h3>
+                    <p>Sviluppo di soluzioni web complete e gestione di campagne di marketing digitale per clienti internazionali.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022 - 2023</div>
+                    <h3 class="timeline-title">Web Developer Junior</h3>
+                    <p>Sviluppo frontend e ottimizzazione SEO per siti aziendali in un'agenzia digitale.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2018 - 2022</div>
+                    <h3 class="timeline-title">Social Media Manager</h3>
+                    <p>Gestione di profili social e creazione di contenuti per brand nel settore fashion e lifestyle.</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#testimonials" class="btn btn-primary">Leggi le testimonianze</a>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>Testimonianze</h2>
+        <div class="testimonials">
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "Fadi ha trasformato completamente la nostra presenza online. Il sito che ha creato non solo è bellissimo, ma ha anche aumentato le nostre conversioni del 40% in soli tre mesi."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Maria Rossi</div>
+                        <div class="author-title">CEO, FashionBrand</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "Le nostre campagne social gestite da Fadi hanno raggiunto un engagement senza precedenti. Professionalità e creatività eccezionali!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Luca Bianchi</div>
+                        <div class="author-title">Marketing Director, TechStartup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#contact" class="btn btn-primary">Contattami per lavorare insieme</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contatti</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:albitaref@gmail.com">albitaref@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <h3>Telefono</h3>
+                        <a href="tel:+393716580667">+39 371 658 0667</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h3>Località</h3>
+                        <p>Piemonte, Italia</p>
+                    </div>
+                </div>
+                
+            </div>
+           
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100093891904979" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="tooltiptext">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/fadi_z_albitar/" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-instagram"></i>
+                    <span class="tooltiptext">Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fadi-albitar/" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span class="tooltiptext">LinkedIn</span>
+                </a>
+                <a href="https://x.com/fadialbitarfd?t=3YANNJ3Q9Tu0kAIIarRa2g&s=09" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-twitter"></i>
+                    <span class="tooltiptext">Twitter</span>
+                </a>
+                <a href="https://github.com/fadidash1" target="_blank" class="social-link tooltip">
+                    <i class="fab fa-github"></i>
+                    <span class="tooltiptext">GitHub</span>
+                </a>
+            </div>
+            <p>&copy; 2022-2025 Fadi Albitar. Tutti i diritti riservati.</p>
+<a href="../chatbot/index.html" class="chat-toggle" title="Apri il chatbot">
+    <i class="fas fa-comment-dots"></i>
+</a>
+
+<div class="chatbot-container">
+    <iframe 
+        src="../chatbot/index.html" 
+        width="100%" 
+        height="100%" 
+        style="border: none;"
+    ></iframe>
+</div>
+
+
+  <div class="scroll-progress"></div>
+        </div>
+    </footer>
+
+    <script src="../profile/main.js"></script>
+</body>
+</html>
