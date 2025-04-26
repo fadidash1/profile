@@ -1029,6 +1029,112 @@
                 padding: 2rem 15px;
             }
         }
+
+
+.book-section {
+    background: var(--dark);
+    padding: 3rem 0;
+    color: var(--light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.book-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.book-cover {
+    flex: 0 0 200px;
+}
+
+.book-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+.book-image:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.btn {
+    display: block;
+    background: var(--accent);
+    color: var(--light);
+    text-align: center;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.meta {
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.cta {
+    font-size: 1.1rem;
+    background: var(--glass);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+@media (max-width: 768px) {
+    .book-content {
+        flex-direction: column;
+    }
+    
+    .book-cover {
+        flex: 1;
+        width: 60%;
+        margin: 0 auto 1.5rem;
+    }
+}
+        
     </style>
 </head>
 <body>
@@ -1305,6 +1411,24 @@
         </div>
     </section>
 
+    <section id="book" class="book-section">
+        <div class="container">
+            <h2 class="section-title">Discover My New Book</h2>
+            <div class="book-content">
+                <div class="book-cover">
+                    <img src="/images/unlock.png" alt="Book Cover" class="book-image">
+                    <a href="https://amzn.eu/d/fzboquV" class="btn">Get Your Copy</a>
+                </div>
+                <div class="book-info">
+                    <h3>UNLOCKING YOUR FULL POTENTIAL</h3>
+                    <p class="subtitle">A Guide to Self-Improvement for College Students, for Life and Future</p>
+                    <p class="meta">Paperback • December 9, 2023 • By Fadi Albitar</p>
+                    <p class="cta">Ready to elevate your life? This book is your roadmap to the future you deserve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="testimonials">
         <h2>Testimonianze</h2>
         <div class="testimonials">
@@ -1332,12 +1456,35 @@
                     </div>
                 </div>
             </div>
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "Grazie al loro approccio innovativo, abbiamo visto un incremento notevole nel traffico del nostro sito web. La loro capacità di comprendere le nostre esigenze e tradurle in strategie efficaci è stata sorprendente. Un partner affidabile e competente!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Elena Verdi</div>
+                        <div class="author-title">Responsabile Marketing, EcoSolutions Srl</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    "La collaborazione con il team è stata fluida e proficua. Hanno dimostrato grande attenzione ai dettagli e una profonda conoscenza del mercato. I risultati ottenuti hanno superato le nostre aspettative. Consigliatissimi!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Marco Gialli</div>
+                        <div class="author-title">Direttore Commerciale, GlobalTech Innovazioni</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
             <a href="#contact" class="btn btn-primary">Contattami per lavorare insieme</a>
         </div>
     </section>
-
     <section id="contact">
         <h2>Contatti</h2>
         <div class="contact-container">
